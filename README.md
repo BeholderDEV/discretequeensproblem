@@ -11,8 +11,8 @@ Imprementar um algoritmo para o [n-queens problem](https://en.wikipedia.org/wiki
 * Imprementar o algoritmo para encontrar apenas uma solução utilizando n = 8 por ser o exemplo clássico do problema
 * Incrementar o algoritmo para encontrar todas as soluções possíveis (com n = 8, número total é de 92 soluções)
 * Definir a rotina de teste, tendo inicialmente como foco encontrar um número máximo para n
-* Dividir valores de n para 100 instâncias como teste inicial, procurando mensurar o tempo que o algoritmo levou para encontrar todas as soluções
-* Guardar e armazezar os valores encontrados no teste
+* Dividir valores de n para 100 instâncias como teste inicial, procurando mensurar o tempo que o algoritmo levou para encontrar todas as soluções em cada n
+* Armazenar os valores encontrados no teste
 * Encontrar a distribuição adequada para os valores encontrados no teste
 * Através da fórmula da distribuição, encontrar o tempo esperado para os valores de n utilizados
 * Realizar mais 100 instâncias de testes com o algoritmo
