@@ -25,4 +25,4 @@ Imprementar um algoritmo para o [n-queens problem](https://en.wikipedia.org/wiki
 * Preparar a interface para exibir o tabuleiro dinâmicamente conforme o tamanho de n aumente
 * Fazer uma das soluções do algoritmo exibir no tela 
 * Fazer uma das soluções do algoritmo executar conforme uma animação passo-a-passo na tela
-* Plotar gráfico conforme valores obtidos do teste (Opcional)
+* Plotar gráfico no próprio programa (Opcional) ou utilizando outra ferramenta com os valores obtidos do teste 
