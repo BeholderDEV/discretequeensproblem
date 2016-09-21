@@ -14,8 +14,8 @@ import java.util.Random;
 public class QueenSolver {
     // Indice do vetor = coluna do tabuleiro ; Numero = linha do tabuleiro
     private int posicoesQueen[];
-    private int n = 5;
-    private Random rand = new Random();
+    private int n = 8;
+    private Random rand;
     
     private void gerarEstadoAleatorio(){
         for (int i = 0; i < this.n; i++) {
@@ -51,9 +51,12 @@ public class QueenSolver {
     private void definirNovaPosicao(int coluna){
         int novaPosicao = 0;
         int custoConflitoTemporario;
-        int novoCustoConflito = -1; // this.determinarNumeroConflitos(this.posicoesQueen[coluna], coluna);
+        int novoCustoConflito = this.determinarNumeroConflitos(this.posicoesQueen[coluna], coluna);
         
         for (int i = 0; i < this.n; i++) {
+            if(i == this.posicoesQueen[coluna]){
+                continue;
+            }
             custoConflitoTemporario = this.determinarNumeroConflitos(i, coluna);
             if(novoCustoConflito == -1 || custoConflitoTemporario <= novoCustoConflito){
                 if(custoConflitoTemporario == novoCustoConflito){
@@ -88,10 +91,12 @@ public class QueenSolver {
             }
             System.out.print("\n");
         }
+        System.out.print("\n");
     }
     
     // Utilizando heurística de busca local - Minimum Conflict
     public void encontrarSolucao(){
+        this.rand = new Random(System.nanoTime());
         this.posicoesQueen = new int[this.n];
         int iteracoes = 0;
         
@@ -100,21 +105,24 @@ public class QueenSolver {
         this.gerarEstadoAleatorio();
         
         // TODO - Lidar com Local Minima (Ótimos locais que impedem que a heurística realize algum movimento na busca local)
-        while(!determinarSolucaoEncontrada() && iteracoes <= 50){
+        while(!determinarSolucaoEncontrada()){// && iteracoes <= 200){
             
             // TODO - Definir se é melhor determinar as novas posições sequencialmente ou
             //        Criar uma lista ordenada da coluna com maior conflito para a menor
             for (int i = 0; i < this.n; i++) {
-                this.definirNovaPosicao(i);
+                if(this.determinarNumeroConflitos(this.posicoesQueen[i], i) > 0){
+                    this.definirNovaPosicao(i);
+                }
             }
             iteracoes++;
             
-            if(iteracoes >= 10){
-                this.desenharBoardConsole();
+            // Tentativa de combater ótimo local
+            if(iteracoes % 100 == 0){
+                this.gerarEstadoAleatorio();
             }
         }
-        System.out.println("Numero de iterações: " + iteracoes);
         this.desenharBoardConsole();
+        System.out.println("Numero de iterações: " + iteracoes);
     }
     
 
