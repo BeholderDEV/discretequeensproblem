@@ -79,20 +79,6 @@ public class QueenSolver {
         }      
         return true;
     }
-
-    private void desenharBoardConsole(){
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(this.posicoesQueen[j] == i){
-                    System.out.print("1 ");
-                }else{
-                    System.out.print("0 ");
-                }
-            }
-            System.out.print("\n");
-        }
-        System.out.print("\n");
-    }
     
     // Utilizando heurística de busca local - Minimum Conflict
     public void encontrarSolucao(){
@@ -121,11 +107,8 @@ public class QueenSolver {
                 this.gerarEstadoAleatorio();
             }
         }
-        this.desenharBoardConsole();
         System.out.println("Numero de iterações: " + iteracoes);
     }
-    
-
     
     public int getN() {
         return n;
@@ -135,5 +118,8 @@ public class QueenSolver {
         this.n = n;
         this.posicoesQueen = new int[n];
     }
-    
+
+    public int[] getPosicoesQueen() {
+        return posicoesQueen;
+    }
 }

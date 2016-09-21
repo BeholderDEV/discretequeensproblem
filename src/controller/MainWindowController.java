@@ -5,13 +5,17 @@
  */
 package controller;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Insets;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.QueenSolver;
@@ -24,35 +28,72 @@ import view.MainWindow;
 public class MainWindowController {
     private MainWindow mainWindow;
     private QueenSolver solver = new QueenSolver();
+    private URL urlImagemQueen = getClass().getResource("/QueenPiece.png");
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
         this.mainWindow.setSize(1020, 700);
-        this.pintarBoard(8);
+        this.pintarBoard(8, Color.BLACK, false);
         this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.setVisible(true);
     }
     
+    private void pintarQueen(JPanel square, Dimension squareSize){
+        try {
+            BufferedImage queenImage= ImageIO.read(this.urlImagemQueen);
+            square.setLayout(new BorderLayout());
+            Image scaledImage = queenImage.getScaledInstance(squareSize.width, squareSize.height, queenImage.SCALE_SMOOTH);
+            JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
+            square.add(picLabel);
+            square.repaint();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(mainWindow, "Erro Catastrófico e Imprevisível");
+        }
+    }
     
-    public void pintarBoard(int tamanho){
+    public void pintarBoard(int tamanho, Color secondTile, boolean pintarQueens){
         this.mainWindow.getChessboardPanel().removeAll();
         this.mainWindow.getChessboardPanel().setLayout(new GridLayout(tamanho, tamanho));
         Dimension squareSize = new Dimension(this.mainWindow.getHeight() / tamanho, this.mainWindow.getHeight() / tamanho);
+        int posicoes[] = this.solver.getPosicoesQueen();
         for (int i = 0; i < tamanho; i++) {
             for (int j = 0; j < tamanho; j++) {
                 JPanel square = new JPanel();
                 square.setPreferredSize(squareSize);
                 square.setPreferredSize(squareSize);
                 if((i + j) % 2 == 0){
-                   square.setBackground(Color.white);
+                   square.setBackground(Color.WHITE);
                 }else{
-                   square.setBackground(Color.BLACK);
+                   square.setBackground(secondTile);
+                }
+                if(pintarQueens && posicoes[j] == i){
+                    this.pintarQueen(square, squareSize);
                 }
                 this.mainWindow.getChessboardPanel().add(square);
             }
         }
         this.mainWindow.pack();
         this.mainWindow.repaint();
+    }
+    
+    private Color definirCorBoard(){
+        String cor = this.mainWindow.getComboCor().getSelectedItem().toString();
+        switch(cor){
+            case "Azul":
+                return Color.BLUE;
+            case "Amarelo":
+                return new Color(224, 224, 0);
+            case "Cinza":
+                return Color.DARK_GRAY;
+            case "Preto":
+                return Color.BLACK;
+            case "Verde":
+                return new Color(0, 102, 51);
+            case "Vermelho":
+                return Color.RED;
+            default:
+                return Color.BLACK;
+        }
     }
     
     public void iniciarExecucao(){
@@ -75,7 +116,7 @@ public class MainWindowController {
             return;
         }
         this.mainWindow.setSize(1020, 700);
-        this.pintarBoard(n);
+        this.pintarBoard(n, this.definirCorBoard(), true);
         this.mainWindow.setLocationRelativeTo(null);
     }
 }
