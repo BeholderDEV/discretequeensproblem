@@ -16,6 +16,8 @@ public class QueenSolver {
     private int posicoesQueen[];
     private int n = 8;
     private Random rand;
+    private double ultimoTempoMilli;
+    private int iteracoes;
     
     private void gerarEstadoAleatorio(){
         for (int i = 0; i < this.n; i++) {
@@ -83,8 +85,10 @@ public class QueenSolver {
     // Utilizando heurística de busca local - Minimum Conflict
     public void encontrarSolucao(){
         this.rand = new Random(System.nanoTime());
+        
+        double tempoInicial = System.nanoTime();
         this.posicoesQueen = new int[this.n];
-        int iteracoes = 0;
+        this.iteracoes = 0;
         
         // Estado Inicial
         // TODO - Definir se é melhor o estado inicial ser aleatório ou utilizar algum tipo de Greedy Search
@@ -100,14 +104,16 @@ public class QueenSolver {
                     this.definirNovaPosicao(i);
                 }
             }
-            iteracoes++;
+            this.iteracoes++;
             
             // Tentativa de combater ótimo local
-            if(iteracoes % 100 == 0){
+            if(this.iteracoes % 200 == 0){
                 this.gerarEstadoAleatorio();
             }
         }
-        System.out.println("Numero de iterações: " + iteracoes);
+        this.ultimoTempoMilli = (System.nanoTime() - tempoInicial) / 1000000.0;
+        System.out.println("Tempo: " + this.ultimoTempoMilli);
+        System.out.println("Numero de iterações: " + this.iteracoes);
     }
     
     public int getN() {
@@ -121,5 +127,13 @@ public class QueenSolver {
 
     public int[] getPosicoesQueen() {
         return posicoesQueen;
+    }
+
+    public int getIteracoes() {
+        return iteracoes;
+    }
+
+    public double getUltimoTempo() {
+        return ultimoTempoMilli;
     }
 }

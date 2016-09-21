@@ -13,6 +13,8 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -29,6 +31,7 @@ public class MainWindowController {
     private MainWindow mainWindow;
     private QueenSolver solver = new QueenSolver();
     private URL urlImagemQueen = getClass().getResource("/QueenPieceWhite.png");
+    private ExternalIOController externalIOController = new ExternalIOController();
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
@@ -40,7 +43,7 @@ public class MainWindowController {
     
     private void pintarQueen(JPanel square, Dimension squareSize){
         try {
-            BufferedImage queenImage= ImageIO.read(this.urlImagemQueen);
+            BufferedImage queenImage = this.externalIOController.getImage(this.urlImagemQueen);
             square.setLayout(new BorderLayout());
             Image scaledImage = queenImage.getScaledInstance(squareSize.width, squareSize.height, queenImage.SCALE_SMOOTH);
             JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
@@ -118,5 +121,10 @@ public class MainWindowController {
         this.mainWindow.setSize(1020, 699);
         this.pintarBoard(n, this.definirCorBoard(), true);
         this.mainWindow.setLocationRelativeTo(null);
-    }
+        try {
+            this.externalIOController.gravarResultadoTeste(this.solver);
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ }
 }
