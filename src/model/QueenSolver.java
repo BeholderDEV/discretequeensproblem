@@ -14,7 +14,7 @@ import java.util.Random;
 public class QueenSolver {
     // Indice do vetor = coluna do tabuleiro ; Numero = linha do tabuleiro
     private int posicoesQueen[];
-    private int n = 4;
+    private int n = 5;
     private Random rand = new Random();
     
     private void gerarEstadoAleatorio(){
@@ -55,9 +55,14 @@ public class QueenSolver {
         
         for (int i = 0; i < this.n; i++) {
             custoConflitoTemporario = this.determinarNumeroConflitos(i, coluna);
-            if(novoCustoConflito == -1 || custoConflitoTemporario < novoCustoConflito){
+            if(novoCustoConflito == -1 || custoConflitoTemporario <= novoCustoConflito){
+                if(custoConflitoTemporario == novoCustoConflito){
+                    if(rand.nextInt(2) == 1){
+                        continue;
+                    }
+                }
                 novoCustoConflito = custoConflitoTemporario;
-                novaPosicao = i;
+                novaPosicao = i; 
             }
         }
         this.posicoesQueen[coluna] = novaPosicao;
@@ -71,21 +76,8 @@ public class QueenSolver {
         }      
         return true;
     }
-    
-    // Utilizando heurística de busca local - Minimum Conflict
-    public void encontrarSolucao(){
-        this.posicoesQueen = new int[this.n];
-        int iteracoes = 0;
-        
-        this.gerarEstadoAleatorio();
-        
-        while(!determinarSolucaoEncontrada() && iteracoes <= 50){
-            for (int i = 0; i < this.n; i++) {
-                this.definirNovaPosicao(i);
-            }
-            iteracoes++;
-        }
-        System.out.println("Numero de iterações: " + iteracoes);
+
+    private void desenharBoardConsole(){
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if(this.posicoesQueen[j] == i){
@@ -96,6 +88,33 @@ public class QueenSolver {
             }
             System.out.print("\n");
         }
+    }
+    
+    // Utilizando heurística de busca local - Minimum Conflict
+    public void encontrarSolucao(){
+        this.posicoesQueen = new int[this.n];
+        int iteracoes = 0;
+        
+        // Estado Inicial
+        // TODO - Definir se é melhor o estado inicial ser aleatório ou utilizar algum tipo de Greedy Search
+        this.gerarEstadoAleatorio();
+        
+        // TODO - Lidar com Local Minima (Ótimos locais que impedem que a heurística realize algum movimento na busca local)
+        while(!determinarSolucaoEncontrada() && iteracoes <= 50){
+            
+            // TODO - Definir se é melhor determinar as novas posições sequencialmente ou
+            //        Criar uma lista ordenada da coluna com maior conflito para a menor
+            for (int i = 0; i < this.n; i++) {
+                this.definirNovaPosicao(i);
+            }
+            iteracoes++;
+            
+            if(iteracoes >= 10){
+                this.desenharBoardConsole();
+            }
+        }
+        System.out.println("Numero de iterações: " + iteracoes);
+        this.desenharBoardConsole();
     }
     
 

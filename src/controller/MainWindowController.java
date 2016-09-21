@@ -17,9 +17,9 @@ public class MainWindowController {
     private QueenSolver solver = new QueenSolver();
     
     public MainWindowController() {
-        this.mainWindow = new MainWindow(this);
-        this.mainWindow.setLocationRelativeTo(null);
-        this.mainWindow.setVisible(true);
+//        this.mainWindow = new MainWindow(this);
+//        this.mainWindow.setLocationRelativeTo(null);
+//        this.mainWindow.setVisible(true);
         this.solver.encontrarSolucao();
     }
 }
