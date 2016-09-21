@@ -5,7 +5,7 @@
  */
 package controller;
 
-import model.QueenBoard;
+import model.QueenSolver;
 import view.MainWindow;
 
 /**
@@ -14,13 +14,12 @@ import view.MainWindow;
  */
 public class MainWindowController {
     private MainWindow mainWindow;
-    private QueenBoard board = new QueenBoard(4);
+    private QueenSolver solver = new QueenSolver();
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
         this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.setVisible(true);
+        this.solver.encontrarSolucao();
     }
-    
-    
 }
