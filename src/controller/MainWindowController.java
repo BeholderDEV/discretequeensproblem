@@ -28,12 +28,12 @@ import view.MainWindow;
 public class MainWindowController {
     private MainWindow mainWindow;
     private QueenSolver solver = new QueenSolver();
-    private URL urlImagemQueen = getClass().getResource("/QueenPiece.png");
+    private URL urlImagemQueen = getClass().getResource("/QueenPieceWhite.png");
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
         this.mainWindow.setSize(1020, 700);
-        this.pintarBoard(8, new Color(0, 0, 140), false);
+        this.pintarBoard(8, Color.BLACK, false);
         this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.setVisible(true);
     }

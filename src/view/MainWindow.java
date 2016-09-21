@@ -111,7 +111,7 @@ public class MainWindow extends javax.swing.JFrame {
         labelCor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelCor.setText("Cor do Tabuleiro: ");
 
-        comboCor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Azul", "Amarelo", "Cinza", "Preto", "Verde", "Vermelho" }));
+        comboCor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Preto", "Azul", "Amarelo", "Cinza", "Verde", "Vermelho" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
