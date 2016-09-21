@@ -49,7 +49,7 @@ public class QueenSolver {
     }
     
     private void definirNovaPosicao(int coluna){
-        int novaPosicao = 0;
+        int novaPosicao = 0; // Posição default para escapar de ótimos locais
         int custoConflitoTemporario;
         int novoCustoConflito = this.determinarNumeroConflitos(this.posicoesQueen[coluna], coluna);
         
@@ -58,7 +58,7 @@ public class QueenSolver {
                 continue;
             }
             custoConflitoTemporario = this.determinarNumeroConflitos(i, coluna);
-            if(novoCustoConflito == -1 || custoConflitoTemporario <= novoCustoConflito){
+            if(custoConflitoTemporario <= novoCustoConflito){
                 if(custoConflitoTemporario == novoCustoConflito){
                     if(rand.nextInt(2) == 1){
                         continue;
