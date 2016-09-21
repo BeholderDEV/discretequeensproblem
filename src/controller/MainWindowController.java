@@ -32,7 +32,7 @@ public class MainWindowController {
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
-        this.mainWindow.setSize(1020, 700);
+        this.mainWindow.setSize(1020, 699);
         this.pintarBoard(8, Color.BLACK, false);
         this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.setVisible(true);
@@ -54,7 +54,7 @@ public class MainWindowController {
     public void pintarBoard(int tamanho, Color secondTile, boolean pintarQueens){
         this.mainWindow.getChessboardPanel().removeAll();
         this.mainWindow.getChessboardPanel().setLayout(new GridLayout(tamanho, tamanho));
-        Dimension squareSize = new Dimension(this.mainWindow.getHeight() / tamanho, this.mainWindow.getHeight() / tamanho);
+        Dimension squareSize = new Dimension(this.mainWindow.getChessboardPanel().getHeight() / tamanho, this.mainWindow.getChessboardPanel().getHeight() / tamanho);
         int posicoes[] = this.solver.getPosicoesQueen();
         for (int i = 0; i < tamanho; i++) {
             for (int j = 0; j < tamanho; j++) {
@@ -115,7 +115,7 @@ public class MainWindowController {
             this.mainWindow.getLabelFalha().setText("Tamanho muito grande para renderizar");
             return;
         }
-        this.mainWindow.setSize(1020, 700);
+        this.mainWindow.setSize(1020, 699);
         this.pintarBoard(n, this.definirCorBoard(), true);
         this.mainWindow.setLocationRelativeTo(null);
     }
