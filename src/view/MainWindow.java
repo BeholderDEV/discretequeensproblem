@@ -11,7 +11,9 @@ import controller.MainWindowController;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
 
@@ -38,6 +40,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         initComponents();
         this.setButtonColor(this.botaoExecutar, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.botaoExecutar.requestFocus();
     }
 
     private void setButtonColor(com.alee.laf.button.WebButton b, Color fore, Color selFor, Color top, Color topSel, Color bot, Color botSel){
@@ -60,8 +63,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         chessboardPanel = new javax.swing.JPanel();
         botaoExecutar = new com.alee.laf.button.WebButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        labelTamanho = new javax.swing.JLabel();
+        inputTamanho = new javax.swing.JTextField();
+        labelFalha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Discrete Queens Problem");
@@ -87,11 +91,14 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("Tamanho do Tabuleiro: ");
+        labelTamanho.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelTamanho.setText("Tamanho do Tabuleiro: ");
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("8");
+        inputTamanho.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputTamanho.setText("8");
+
+        labelFalha.setForeground(new java.awt.Color(255, 0, 0));
+        labelFalha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,19 +112,22 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(botaoExecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(labelTamanho)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(inputTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelFalha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(chessboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(600, Short.MAX_VALUE)
+                .addContainerGap(574, Short.MAX_VALUE)
+                .addComponent(labelFalha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTamanho)
+                    .addComponent(inputTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(botaoExecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -127,7 +137,7 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoExecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExecutarActionPerformed
-        // TODO add your handling code here:
+        this.controller.iniciarExecucao();
     }//GEN-LAST:event_botaoExecutarActionPerformed
 
     /**
@@ -168,11 +178,20 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.alee.laf.button.WebButton botaoExecutar;
     private javax.swing.JPanel chessboardPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField inputTamanho;
+    private javax.swing.JLabel labelFalha;
+    private javax.swing.JLabel labelTamanho;
     // End of variables declaration//GEN-END:variables
 
     public JPanel getChessboardPanel() {
         return chessboardPanel;
+    }
+
+    public JTextField getInputTamanho() {
+        return inputTamanho;
+    }
+
+    public JLabel getLabelFalha() {
+        return labelFalha;
     }
 }

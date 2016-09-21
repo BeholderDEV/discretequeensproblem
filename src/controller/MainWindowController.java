@@ -12,6 +12,7 @@ import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.QueenSolver;
 import view.MainWindow;
@@ -30,11 +31,11 @@ public class MainWindowController {
         this.pintarBoard(8);
         this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.setVisible(true);
-//        this.solver.encontrarSolucao();
     }
     
     
     public void pintarBoard(int tamanho){
+        this.mainWindow.getChessboardPanel().removeAll();
         this.mainWindow.getChessboardPanel().setLayout(new GridLayout(tamanho, tamanho));
         Dimension squareSize = new Dimension(this.mainWindow.getHeight() / tamanho, this.mainWindow.getHeight() / tamanho);
         for (int i = 0; i < tamanho; i++) {
@@ -54,4 +55,27 @@ public class MainWindowController {
         this.mainWindow.repaint();
     }
     
+    public void iniciarExecucao(){
+        this.mainWindow.getLabelFalha().setText("");
+        int n = 0;
+        try {
+            n = Integer.parseInt(this.mainWindow.getInputTamanho().getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(mainWindow, "Erro na entrada do tamanho do tabuleiro!");
+            return;
+        }
+        if(n < 4){
+            this.mainWindow.getLabelFalha().setText("O tamanho precisa ser maior que 3");
+            return;
+        }
+        this.solver.setN(n);
+        this.solver.encontrarSolucao();
+        if(n > 50){
+            this.mainWindow.getLabelFalha().setText("Tamanho muito grande para renderizar");
+            return;
+        }
+        this.mainWindow.setSize(1020, 700);
+        this.pintarBoard(n);
+        this.mainWindow.setLocationRelativeTo(null);
+    }
 }
