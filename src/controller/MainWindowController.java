@@ -33,7 +33,7 @@ public class MainWindowController {
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
         this.mainWindow.setSize(1020, 700);
-        this.pintarBoard(8, Color.BLACK, false);
+        this.pintarBoard(8, new Color(0, 0, 140), false);
         this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.setVisible(true);
     }
@@ -80,7 +80,7 @@ public class MainWindowController {
         String cor = this.mainWindow.getComboCor().getSelectedItem().toString();
         switch(cor){
             case "Azul":
-                return Color.BLUE;
+                return new Color(0, 0, 140);
             case "Amarelo":
                 return new Color(224, 224, 0);
             case "Cinza":
