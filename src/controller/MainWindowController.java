@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.QueenSolver;
+import model.QueenSolverDemonstration;
 import view.MainWindow;
 
 /**
@@ -28,9 +29,10 @@ import view.MainWindow;
  */
 public class MainWindowController {
     private MainWindow mainWindow;
-    private QueenSolver solver = new QueenSolver(this);
+    private QueenSolver solver;
     private URL urlImagemQueen = getClass().getResource("/QueenPieceWhite.png");
     private ExternalIOController externalIOController = new ExternalIOController();
+    private TestWindowController testWindowController;
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
@@ -56,8 +58,11 @@ public class MainWindowController {
     public void pintarBoard(int tamanho, Color secondTile, boolean pintarQueens){
         this.mainWindow.getChessboardPanel().removeAll();
         this.mainWindow.getChessboardPanel().setLayout(new GridLayout(tamanho, tamanho));
-        Dimension squareSize = new Dimension(this.mainWindow.getChessboardPanel().getHeight() / tamanho, this.mainWindow.getChessboardPanel().getHeight() / tamanho);
-        int posicoes[] = this.solver.getPosicoesQueen();
+        Dimension squareSize = new Dimension((this.mainWindow.getChessboardPanel().getHeight() - 5) / tamanho, (this.mainWindow.getChessboardPanel().getHeight() - 5) / tamanho);
+        int posicoes[] = null;
+        if(pintarQueens){
+            posicoes = this.solver.getPosicoesQueen();
+        }
         for (int i = 0; i < tamanho; i++) {
             for (int j = 0; j < tamanho; j++) {
                 JPanel square = new JPanel();
@@ -99,6 +104,9 @@ public class MainWindowController {
     }
     
     public void iniciarExecucao(){
+        if(this.solver == null){
+            this.solver = new QueenSolverDemonstration(this);
+        }
         if(this.solver.isThreadExecucao()){
             this.mainWindow.getLabelFalha().setText("Solução em Execução");
             return;
@@ -127,21 +135,28 @@ public class MainWindowController {
         }
     }
     
-    public synchronized void terminarExecucao(){
+    public synchronized void terminarExecucao(boolean pintarBoard){
         this.mainWindow.getOutputTempo().setText("" + this.solver.getUltimoTempo());
         this.mainWindow.getOutputIteracoes().setText("" + this.solver.getIteracoes());
-        if(this.solver.getN() > 50){
-            this.mainWindow.getLabelSucesso().setText("Solucionado");
-            return;
+        if(this.solver.getN() <= 50 && pintarBoard == true){
+            this.mainWindow.setSize(1020, 699);
+            this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
+            this.mainWindow.setLocationRelativeTo(null);
         }
-        this.mainWindow.setSize(1020, 699);
-        this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
-        this.mainWindow.setLocationRelativeTo(null);
         this.mainWindow.getLabelSucesso().setText("Solucionado");
         try {
             this.externalIOController.gravarResultadoTeste(this.solver);
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void iniciarModuloTeste(){
+        this.mainWindow.setVisible(false);
+        this.testWindowController = new TestWindowController(this, this.solver);
+    }
+    
+    public void reiniciarModoDemonstracao(){
+        this.mainWindow.setVisible(true);
     }
 }

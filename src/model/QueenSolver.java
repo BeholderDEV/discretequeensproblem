@@ -12,34 +12,26 @@ import java.util.Random;
  *
  * @author Augustop
  */
-public class QueenSolver implements Runnable{
+public abstract class QueenSolver implements Runnable{
     // Indice do vetor = coluna do tabuleiro ; Numero = linha do tabuleiro
-    private int posicoesQueen[];
-    private int n = 8;
-    private Random rand;
-    private double ultimoTempoMilli;
-    private int iteracoes;
-    private boolean threadExecucao = false;
-    private MainWindowController mainWindowController;
-
-    public QueenSolver(MainWindowController ctr) {
-        this.mainWindowController = ctr;
-    }
+    protected int posicoesQueen[];
+    protected int n = 8;
+    protected Random rand;
+    protected double ultimoTempoMilli;
+    protected int iteracoes;
+    protected boolean threadExecucao = false;
+    protected MainWindowController mainWindowController;
     
     @Override
-    public void run() {
-        this.encontrarSolucao();
-        this.mainWindowController.terminarExecucao();
-        this.threadExecucao = false;
-    }
+    public void run() {}
     
-    private void gerarEstadoAleatorio(){
+    protected void gerarEstadoAleatorio(){
         for (int i = 0; i < this.n; i++) {
             this.posicoesQueen[i] = rand.nextInt(this.n);
         }
     }
     
-    private int determinarNumeroConflitos(int linha, int coluna){
+    protected int determinarNumeroConflitos(int linha, int coluna){
         int nc = 0;
         for (int i = 1; i < this.n; i++) {
             if(coluna + i < this.n && this.posicoesQueen[coluna + i] == linha){
@@ -64,7 +56,7 @@ public class QueenSolver implements Runnable{
         return nc;
     }
     
-    private void definirNovaPosicao(int coluna){
+    protected void definirNovaPosicao(int coluna){
         int novaPosicao = 0; // Posição default para escapar de ótimos locais
         int custoConflitoTemporario;
         int novoCustoConflito = this.determinarNumeroConflitos(this.posicoesQueen[coluna], coluna);
@@ -87,7 +79,7 @@ public class QueenSolver implements Runnable{
         this.posicoesQueen[coluna] = novaPosicao;
     }
     
-    private boolean determinarSolucaoEncontrada(){
+    protected boolean determinarSolucaoEncontrada(){
         for (int i = 0; i < this.n; i++) {
             if(this.determinarNumeroConflitos(this.posicoesQueen[i], i) != 0){
                 return false;
