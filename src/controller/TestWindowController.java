@@ -38,8 +38,10 @@ public class TestWindowController {
     }
     
     public void iniciarLimpezaTestes(){
-        this.testWindow.getLabelMensagem().setText("");
-        this.externalIOController.limparTestes();
+        if(this.solver != null && !this.solver.isThreadExecucao()){
+            this.testWindow.getLabelMensagem().setText("");
+            this.externalIOController.limparTestes();
+        }
     }
     
     public boolean validarInputTeste(String inputN, String inputRepeticoes){
