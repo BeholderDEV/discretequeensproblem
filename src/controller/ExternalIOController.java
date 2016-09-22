@@ -63,17 +63,8 @@ public class ExternalIOController {
     
     public void limparTestes(){
         File f = new File("ResultadoExperimento.xls");
-        PrintWriter pw = null;
-        if(!f.isFile() || !f.canRead()){
-            return;
-        }else{
-            try {
-                pw = new PrintWriter(new FileOutputStream(f, false));
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(ExternalIOController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            pw.write("");
-            pw.close();
+        if(f.exists()){
+            f.delete();
         }
     }
     
