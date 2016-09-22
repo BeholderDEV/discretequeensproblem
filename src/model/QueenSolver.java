@@ -119,15 +119,8 @@ public class QueenSolver implements Runnable{
                 }
             }
             this.iteracoes++;
-            
-            // Tentativa de combater ótimo local
-            if(this.iteracoes % 200 == 0){
-                this.gerarEstadoAleatorio();
-            }
         }
         this.ultimoTempoMilli = (System.nanoTime() - tempoInicial) / 1000000.0;
-        System.out.println("Tempo: " + this.ultimoTempoMilli);
-        System.out.println("Numero de iterações: " + this.iteracoes);
     }
     
     public int getN() {

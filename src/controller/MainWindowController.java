@@ -128,6 +128,8 @@ public class MainWindowController {
     }
     
     public synchronized void terminarExecucao(){
+        this.mainWindow.getOutputTempo().setText("" + this.solver.getUltimoTempo());
+        this.mainWindow.getOutputIteracoes().setText("" + this.solver.getIteracoes());
         if(this.solver.getN() > 50){
             this.mainWindow.getLabelSucesso().setText("Solucionado");
             return;

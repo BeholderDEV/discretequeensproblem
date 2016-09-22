@@ -70,6 +70,10 @@ public class MainWindow extends javax.swing.JFrame {
         labelCor = new javax.swing.JLabel();
         comboCor = new javax.swing.JComboBox();
         labelSucesso = new javax.swing.JLabel();
+        labelTempo = new javax.swing.JLabel();
+        outputTempo = new javax.swing.JTextField();
+        labelIte = new javax.swing.JLabel();
+        outputIteracoes = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Discrete Queens Problem");
@@ -118,6 +122,33 @@ public class MainWindow extends javax.swing.JFrame {
         labelSucesso.setForeground(new java.awt.Color(51, 51, 255));
         labelSucesso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        labelTempo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelTempo.setText("Tempo de Solução (MS)");
+
+        outputTempo.setEditable(false);
+        outputTempo.setBackground(new java.awt.Color(255, 255, 255));
+        outputTempo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        outputTempo.setText("0");
+        outputTempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outputTempoActionPerformed(evt);
+            }
+        });
+
+        labelIte.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelIte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelIte.setText("Iterações");
+
+        outputIteracoes.setEditable(false);
+        outputIteracoes.setBackground(new java.awt.Color(255, 255, 255));
+        outputIteracoes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        outputIteracoes.setText("0");
+        outputIteracoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outputIteracoesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,14 +174,31 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(comboCor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelSucesso, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelSucesso, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelIte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelTempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(outputTempo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(outputIteracoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(chessboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTempo)
+                    .addComponent(outputTempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIte)
+                    .addComponent(outputIteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelSucesso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,6 +225,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void inputTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTamanhoActionPerformed
         this.botaoExecutar.doClick();
     }//GEN-LAST:event_inputTamanhoActionPerformed
+
+    private void outputTempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputTempoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputTempoActionPerformed
+
+    private void outputIteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputIteracoesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputIteracoesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,8 +276,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField inputTamanho;
     private javax.swing.JLabel labelCor;
     private javax.swing.JLabel labelFalha;
+    private javax.swing.JLabel labelIte;
     private javax.swing.JLabel labelSucesso;
     private javax.swing.JLabel labelTamanho;
+    private javax.swing.JLabel labelTempo;
+    private javax.swing.JTextField outputIteracoes;
+    private javax.swing.JTextField outputTempo;
     // End of variables declaration//GEN-END:variables
 
     public JPanel getChessboardPanel() {
@@ -242,5 +302,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     public JLabel getLabelSucesso() {
         return labelSucesso;
+    }
+
+    public JTextField getOutputTempo() {
+        return outputTempo;
+    }
+
+    public JTextField getOutputIteracoes() {
+        return outputIteracoes;
     }
 }
