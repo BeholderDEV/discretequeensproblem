@@ -38,6 +38,7 @@ public class TestWindow extends javax.swing.JFrame {
         }
         initComponents();
         this.controller = ctr;
+        this.inputTamanho.requestFocus();
     }
     
     private void setButtonColor(com.alee.laf.button.WebButton b, Color fore, Color selFor, Color top, Color topSel, Color bot, Color botSel){
@@ -123,7 +124,6 @@ public class TestWindow extends javax.swing.JFrame {
             }
         });
 
-        outputRotinas.setEditable(false);
         outputRotinas.setColumns(20);
         outputRotinas.setRows(5);
         jScrollPane2.setViewportView(outputRotinas);

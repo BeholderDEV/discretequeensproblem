@@ -42,24 +42,31 @@ public class TestWindowController {
         this.externalIOController.limparTestes();
     }
     
-    public void inserirTeste(){
-        this.testWindow.getLabelMensagem().setText("");
-        this.testWindow.getLabelMensagem().setForeground(Color.RED);
+    public boolean validarInputTeste(String inputN, String inputRepeticoes){
         int n = 0;
         int repeticoes = 0;
         try {
-            n = Integer.parseInt(this.testWindow.getInputTamanho().getText());
-            repeticoes = Integer.parseInt(this.testWindow.getInputRepeticoes().getText());
+            n = Integer.parseInt(inputN);
+            repeticoes = Integer.parseInt(inputRepeticoes);
         } catch (Exception e) {
             this.testWindow.getLabelMensagem().setText("Falha no input");
-            return;
+            return false;
         }
         if(n < 4 || repeticoes <= 0){
             this.testWindow.getLabelMensagem().setText("Falha no input");
+            return false;
+        }
+        return true;
+    }
+    
+    public void inserirTeste(){
+        this.testWindow.getLabelMensagem().setText("");
+        this.testWindow.getLabelMensagem().setForeground(Color.RED);
+        
+        if(!validarInputTeste(this.testWindow.getInputTamanho().getText(), this.testWindow.getInputRepeticoes().getText())){
             return;
         }
-        this.rotina.add(new CasoTeste(n, repeticoes));
-        this.testWindow.getOutputRotinas().append("" + n + ", " + repeticoes + "\n");
+        this.testWindow.getOutputRotinas().append(this.testWindow.getInputTamanho().getText() + "," + this.testWindow.getInputRepeticoes().getText() + "," + "\n");
     }
     
     public void iniciarRotina(){
@@ -68,9 +75,21 @@ public class TestWindowController {
         }else if(this.solver.isThreadExecucao()){
             return;
         }
+        this.testWindow.getLabelMensagem().setForeground(Color.RED);
+        String data[] = this.testWindow.getOutputRotinas().getText().replaceAll("\\s+","").split(",");
+        for (int i = 0; i < data.length; i += 2) {
+            if(i + 1 >= data.length){
+                this.rotina.clear();
+                break;
+            }
+            if(!validarInputTeste(data[i], data[i + 1])){
+                return;
+            }else{
+                this.rotina.add(new CasoTeste(Integer.parseInt(data[i]), Integer.parseInt(data[i + 1])));
+            }
+        }
         if(this.rotina.isEmpty()){
-            this.testWindow.getLabelMensagem().setForeground(Color.RED);
-            this.testWindow.getLabelMensagem().setText("Rotina Vazia");
+            this.testWindow.getLabelMensagem().setText("Rotina Vazia ou Preenchida Incorretamente");
             return;
         }
         this.solver = new QueenSolverExperimental(rotina, this);
