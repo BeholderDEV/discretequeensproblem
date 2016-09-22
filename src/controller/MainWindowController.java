@@ -29,7 +29,7 @@ import view.MainWindow;
  */
 public class MainWindowController {
     private MainWindow mainWindow;
-    private QueenSolver solver = new QueenSolver();
+    private QueenSolver solver = new QueenSolver(this);
     private URL urlImagemQueen = getClass().getResource("/QueenPieceWhite.png");
     private ExternalIOController externalIOController = new ExternalIOController();
     
@@ -100,6 +100,10 @@ public class MainWindowController {
     }
     
     public void iniciarExecucao(){
+        if(this.solver.isThreadExecucao()){
+            this.mainWindow.getLabelFalha().setText("Solução em Execução");
+            return;
+        }
         this.mainWindow.getLabelFalha().setText("");
         int n = 0;
         try {
@@ -113,18 +117,26 @@ public class MainWindowController {
             return;
         }
         this.solver.setN(n);
-        this.solver.encontrarSolucao();
+        this.solver.setThreadExecucao(true);
+        Thread t = new Thread(this.solver);
+        t.start();
         if(n > 50){
             this.mainWindow.getLabelFalha().setText("Tamanho muito grande para renderizar");
             return;
         }
+    }
+    
+    public synchronized void terminarExecucao(){
+        if(this.solver.getN() > 50){
+            return;
+        }
         this.mainWindow.setSize(1020, 699);
-        this.pintarBoard(n, this.definirCorBoard(), true);
+        this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
         this.mainWindow.setLocationRelativeTo(null);
         try {
             this.externalIOController.gravarResultadoTeste(this.solver);
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
- }
+    }
 }

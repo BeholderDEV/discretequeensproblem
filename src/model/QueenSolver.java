@@ -5,19 +5,33 @@
  */
 package model;
 
+import controller.MainWindowController;
 import java.util.Random;
 
 /**
  *
  * @author Augustop
  */
-public class QueenSolver {
+public class QueenSolver implements Runnable{
     // Indice do vetor = coluna do tabuleiro ; Numero = linha do tabuleiro
     private int posicoesQueen[];
     private int n = 8;
     private Random rand;
     private double ultimoTempoMilli;
     private int iteracoes;
+    private boolean threadExecucao = false;
+    private MainWindowController mainWindowController;
+
+    public QueenSolver(MainWindowController ctr) {
+        this.mainWindowController = ctr;
+    }
+    
+    @Override
+    public void run() {
+        this.encontrarSolucao();
+        this.mainWindowController.terminarExecucao();
+        this.threadExecucao = false;
+    }
     
     private void gerarEstadoAleatorio(){
         for (int i = 0; i < this.n; i++) {
@@ -136,4 +150,13 @@ public class QueenSolver {
     public double getUltimoTempo() {
         return ultimoTempoMilli;
     }
+
+    public synchronized boolean isThreadExecucao() {
+        return threadExecucao;
+    }
+
+    public synchronized void setThreadExecucao(boolean threadExecucao) {
+        this.threadExecucao = threadExecucao;
+    }
+    
 }

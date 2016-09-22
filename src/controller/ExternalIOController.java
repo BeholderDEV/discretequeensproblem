@@ -5,7 +5,6 @@
  */
 package controller;
 
-import java.awt.List;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,17 +24,15 @@ public class ExternalIOController {
     public void gravarResultadoTeste(QueenSolver solver) throws IOException{
         File f = new File("ResultadoExperimento.csv");
         PrintWriter pw;
-//        CSVWriter writer = new CSVWriter(new FileWriter(csv));
-//
-//        List<String> data = new ArrayList<String[]>();
-//        data.add(new String[] {solver.getN() + "," + solver.getIteracoes() + "," + solver.getUltimoTempo()});
+
+        String[] novoDado = {"" + solver.getN() ,"" + solver.getIteracoes() , "" + solver.getUltimoTempo()};
         if(f.isFile() && f.canRead()){
             pw = new PrintWriter(new FileOutputStream(f, true));
         }else{
             pw = new PrintWriter(new File("ResultadoExperimento.csv"));
-//            pw.write("sdiType=ReferenceValue,,,\n");
             pw.write("Tamanho N,Iteracoes,Tempo de servico\n");
         }
+
         pw.write(solver.getN() + "," + solver.getIteracoes() + "," + solver.getUltimoTempo() + "\n");
         pw.close();
     }
