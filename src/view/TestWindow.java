@@ -76,7 +76,8 @@ public class TestWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Módulo de Testes");
-        setPreferredSize(new java.awt.Dimension(1020, 520));
+        setPreferredSize(new java.awt.Dimension(950, 520));
+        setResizable(false);
 
         botaoRetornar.setText("Retornar ao Tabuleiro");
         botaoRetornar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +116,7 @@ public class TestWindow extends javax.swing.JFrame {
         labelRepeticoes.setText("Quantidade de Repetições");
 
         inputRepeticoes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inputRepeticoes.setText("0");
+        inputRepeticoes.setText("1");
         inputRepeticoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputRepeticoesActionPerformed(evt);
@@ -191,7 +192,7 @@ public class TestWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(botaoLimparRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -237,11 +238,8 @@ public class TestWindow extends javax.swing.JFrame {
         this.controller.finalizarTestes();
     }//GEN-LAST:event_botaoRetornarActionPerformed
 
-    private void inputTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTamanhoActionPerformed
-    }//GEN-LAST:event_inputTamanhoActionPerformed
-
     private void inputRepeticoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRepeticoesActionPerformed
-        // TODO add your handling code here:
+        this.botaoIncluirTeste.doClick();
     }//GEN-LAST:event_inputRepeticoesActionPerformed
 
     private void botaoLimparDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparDadosActionPerformed
@@ -259,6 +257,10 @@ public class TestWindow extends javax.swing.JFrame {
     private void botaoIncluirTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirTesteActionPerformed
         this.controller.inserirTeste();
     }//GEN-LAST:event_botaoIncluirTesteActionPerformed
+
+    private void inputTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTamanhoActionPerformed
+        this.botaoIncluirTeste.doClick();
+    }//GEN-LAST:event_inputTamanhoActionPerformed
 
     /**
      * @param args the command line arguments

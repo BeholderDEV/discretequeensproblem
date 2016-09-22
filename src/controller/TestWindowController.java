@@ -32,7 +32,7 @@ public class TestWindowController {
         this.solver = solver;
         this.rotina = new ArrayList<CasoTeste>();
         this.testWindow = new TestWindow(this);
-        this.testWindow.setSize(1020, 550);
+        this.testWindow.setSize(950, 550);
         this.testWindow.setLocationRelativeTo(null);
         this.testWindow.setVisible(true);
     }
@@ -101,6 +101,9 @@ public class TestWindowController {
     }
     
     public void finalizarTestes(){
+        if(this.solver != null && this.solver.isThreadExecucao()){
+            return;
+        }
         this.testWindow.setVisible(false);
         this.mainWindowController.reiniciarModoDemonstracao();
         this.testWindow.dispose();

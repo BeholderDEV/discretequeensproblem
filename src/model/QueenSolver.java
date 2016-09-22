@@ -95,7 +95,6 @@ public abstract class QueenSolver implements Runnable{
         double tempoInicial = System.nanoTime();
         this.posicoesQueen = new int[this.n];
         this.iteracoes = 0;
-        
         // Estado Inicial
         // TODO - Definir se é melhor o estado inicial ser aleatório ou utilizar algum tipo de Greedy Search
         this.gerarEstadoAleatorio();
@@ -111,6 +110,9 @@ public abstract class QueenSolver implements Runnable{
                 }
             }
             this.iteracoes++;
+            if(iteracoes % (n * 10) == 0){
+                this.gerarEstadoAleatorio();
+            }
         }
         this.ultimoTempoMilli = (System.nanoTime() - tempoInicial) / 1000000.0;
     }

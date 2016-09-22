@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,6 +17,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import model.QueenSolver;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 /**
  *
@@ -24,23 +30,39 @@ import model.QueenSolver;
 public class ExternalIOController {
     
     public void gravarResultadoTeste(QueenSolver solver) throws IOException{
-        File f = new File("ResultadoExperimento.csv");
-        PrintWriter pw;
-
-        String[] novoDado = {"" + solver.getN() ,"" + solver.getIteracoes() , "" + solver.getUltimoTempo()};
+        File f = new File("ResultadoExperimento.xls");
+        HSSFWorkbook workbook = null;
+        HSSFSheet sheet = null;  
+        FileOutputStream fileOut = null;
+        HSSFRow row = null;
+        
         if(f.isFile() && f.canRead()){
-            pw = new PrintWriter(new FileOutputStream(f, true));
+            workbook = new HSSFWorkbook(new FileInputStream(f));
+            sheet = workbook.getSheetAt(0);
+            row= sheet.createRow(sheet.getLastRowNum() + 1);
+            row.createCell(0).setCellValue(solver.getN());
+            row.createCell(1).setCellValue(solver.getIteracoes());
+            row.createCell(2).setCellValue(solver.getUltimoTempo());
+            fileOut = new FileOutputStream(f);
         }else{
-            pw = new PrintWriter(new File("ResultadoExperimento.csv"));
-            pw.write("Tamanho N,Iteracoes,Tempo de servico\n");
+            workbook = new HSSFWorkbook();
+            sheet = workbook.createSheet("TestSheet");
+            HSSFRow rowhead = sheet.createRow((short)0);
+            rowhead.createCell(0).setCellValue("N");
+            rowhead.createCell(1).setCellValue("Iterações");
+            rowhead.createCell(2).setCellValue("Tempo de Serviço (MS)");
+            row = sheet.createRow(1);
+            row.createCell(0).setCellValue(solver.getN());
+            row.createCell(1).setCellValue(solver.getIteracoes());
+            row.createCell(2).setCellValue(solver.getUltimoTempo());
+            fileOut = new FileOutputStream(new File("ResultadoExperimento.xls"));
         }
-
-        pw.write(solver.getN() + "," + solver.getIteracoes() + "," + solver.getUltimoTempo() + "\n");
-        pw.close();
+        workbook.write(fileOut);
+        fileOut.close();
     }
     
     public void limparTestes(){
-        File f = new File("ResultadoExperimento.csv");
+        File f = new File("ResultadoExperimento.xls");
         PrintWriter pw = null;
         if(!f.isFile() || !f.canRead()){
             return;

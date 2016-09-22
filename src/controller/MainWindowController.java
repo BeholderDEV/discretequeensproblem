@@ -152,6 +152,9 @@ public class MainWindowController {
     }
     
     public void iniciarModuloTeste(){
+        if(this.solver != null && this.solver.isThreadExecucao()){
+            return;
+        }
         this.mainWindow.setVisible(false);
         this.testWindowController = new TestWindowController(this, this.solver);
     }
