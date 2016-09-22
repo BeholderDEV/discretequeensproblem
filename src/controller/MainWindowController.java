@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -105,6 +104,7 @@ public class MainWindowController {
             return;
         }
         this.mainWindow.getLabelFalha().setText("");
+        this.mainWindow.getLabelSucesso().setText("");
         int n = 0;
         try {
             n = Integer.parseInt(this.mainWindow.getInputTamanho().getText());
@@ -116,6 +116,7 @@ public class MainWindowController {
             this.mainWindow.getLabelFalha().setText("O tamanho precisa ser maior que 3");
             return;
         }
+        this.mainWindow.getLabelSucesso().setText("...");
         this.solver.setN(n);
         this.solver.setThreadExecucao(true);
         Thread t = new Thread(this.solver);
@@ -128,11 +129,13 @@ public class MainWindowController {
     
     public synchronized void terminarExecucao(){
         if(this.solver.getN() > 50){
+            this.mainWindow.getLabelSucesso().setText("Solucionado");
             return;
         }
         this.mainWindow.setSize(1020, 699);
         this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
         this.mainWindow.setLocationRelativeTo(null);
+        this.mainWindow.getLabelSucesso().setText("Solucionado");
         try {
             this.externalIOController.gravarResultadoTeste(this.solver);
         } catch (IOException ex) {
