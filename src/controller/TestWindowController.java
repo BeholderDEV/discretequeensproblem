@@ -112,7 +112,7 @@ public class TestWindowController {
     }
     
     public void finalizarRotina(){
-        this.testWindow.getLabelMensagem().setText("Rotina Finalizada");
+        this.testWindow.getLabelMensagem().setText("Rotina Salva em ResultadoExperimento.xls");
     }
     
     public void limparRotina(){

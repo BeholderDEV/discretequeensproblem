@@ -144,11 +144,6 @@ public class MainWindowController {
             this.mainWindow.setLocationRelativeTo(null);
         }
         this.mainWindow.getLabelSucesso().setText("Solucionado");
-        try {
-            this.externalIOController.gravarResultadoTeste(this.solver);
-        } catch (IOException ex) {
-            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
     public void iniciarModuloTeste(){
