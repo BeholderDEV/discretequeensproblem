@@ -74,10 +74,10 @@ public class TestWindow extends javax.swing.JFrame {
         botaoLimparRotina = new javax.swing.JButton();
         botaoLimparDados = new javax.swing.JButton();
         labelMensagem = new javax.swing.JLabel();
+        botaoLimparDados1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Módulo de Testes");
-        setPreferredSize(new java.awt.Dimension(950, 520));
         setResizable(false);
 
         botaoRetornar.setText("Retornar ao Tabuleiro");
@@ -162,15 +162,19 @@ public class TestWindow extends javax.swing.JFrame {
         labelMensagem.setForeground(new java.awt.Color(204, 0, 51));
         labelMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        botaoLimparDados1.setText("Gerar Numeros");
+        botaoLimparDados1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparDados1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -187,14 +191,21 @@ public class TestWindow extends javax.swing.JFrame {
                                 .addComponent(labelRepeticoes)
                                 .addGap(18, 18, 18)
                                 .addComponent(inputRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botaoRetornar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(botaoLimparRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(botaoLimparRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(botaoLimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -227,7 +238,8 @@ public class TestWindow extends javax.swing.JFrame {
                         .addGap(35, 35, 35)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoLimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -261,6 +273,10 @@ public class TestWindow extends javax.swing.JFrame {
     private void inputTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTamanhoActionPerformed
         this.botaoIncluirTeste.doClick();
     }//GEN-LAST:event_inputTamanhoActionPerformed
+
+    private void botaoLimparDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparDados1ActionPerformed
+        this.controller.gerarNumerosDistribuicao();
+    }//GEN-LAST:event_botaoLimparDados1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +317,7 @@ public class TestWindow extends javax.swing.JFrame {
     private javax.swing.JButton botaoIncluirTeste;
     private javax.swing.JButton botaoIniciarRotina;
     private javax.swing.JButton botaoLimparDados;
+    private javax.swing.JButton botaoLimparDados1;
     private javax.swing.JButton botaoLimparRotina;
     private javax.swing.JButton botaoRetornar;
     private javax.swing.JTextField inputRepeticoes;
