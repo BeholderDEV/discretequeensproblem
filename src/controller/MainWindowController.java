@@ -142,8 +142,11 @@ public class MainWindowController {
             this.mainWindow.setSize(1020, 699);
             this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
             this.mainWindow.setLocationRelativeTo(null);
+            this.mainWindow.getLabelSucesso().setText("Solucionado");
+        } else {
+            this.mainWindow.getLabelSucesso().setText("");
         }
-        this.mainWindow.getLabelSucesso().setText("Solucionado");
+        
     }
     
     public void iniciarModuloTeste(){
@@ -157,4 +160,10 @@ public class MainWindowController {
     public void reiniciarModoDemonstracao(){
         this.mainWindow.setVisible(true);
     }
+
+    
+    public void iniciarPassoAPasso(){
+
+    }
+
 }
