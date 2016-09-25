@@ -47,7 +47,7 @@ public class ExternalIOController {
         }else{
             workbook = new HSSFWorkbook();
             sheet = workbook.createSheet("TestSheet");
-            HSSFRow rowhead = sheet.createRow((short)0);
+            HSSFRow rowhead = sheet.createRow(0);
             rowhead.createCell(0).setCellValue("N");
             rowhead.createCell(1).setCellValue("Iterações");
             rowhead.createCell(2).setCellValue("Tempo de Serviço (MS)");
@@ -55,6 +55,44 @@ public class ExternalIOController {
             row.createCell(0).setCellValue(solver.getN());
             row.createCell(1).setCellValue(solver.getIteracoes());
             row.createCell(2).setCellValue(solver.getUltimoTempo());
+            fileOut = new FileOutputStream(new File("ResultadoExperimento.xls"));
+        }
+        workbook.write(fileOut);
+        fileOut.close();
+    }
+    
+    public void gravarNumerosDistribuição() throws IOException{
+        File f = new File("ResultadoExperimento.xls");
+        HSSFWorkbook workbook = null;
+        HSSFSheet sheet = null;  
+        FileOutputStream fileOut = null;
+        HSSFRow row = null;
+        
+        if(f.isFile() && f.canRead()){
+            workbook = new HSSFWorkbook(new FileInputStream(f));
+            sheet = workbook.getSheetAt(0);
+            row = sheet.getRow(0);
+            row.createCell(3).setCellValue("Números Gerados por Distribuição");
+            for (int i = 0; i < DistributionController.getNumerosGerados().size(); i++) {
+                row = sheet.getRow(i + 1);
+                if(row == null){
+                    row = sheet.createRow(sheet.getLastRowNum() + 1);
+                }
+                row.createCell(3).setCellValue(DistributionController.getNumerosGerados().get(i));
+            }
+            fileOut = new FileOutputStream(f);
+        }else{
+            workbook = new HSSFWorkbook();
+            sheet = workbook.createSheet("TestSheet");
+            HSSFRow rowhead = sheet.createRow((short)0);
+            rowhead.createCell(0).setCellValue("N");
+            rowhead.createCell(1).setCellValue("Iterações");
+            rowhead.createCell(2).setCellValue("Tempo de Serviço (MS)");
+            rowhead.createCell(3).setCellValue("Números Gerados por Distribuição");
+            for (int i = 0; i < DistributionController.getNumerosGerados().size(); i++) {
+                row = sheet.createRow(sheet.getLastRowNum() + 1);
+                row.createCell(3).setCellValue(DistributionController.getNumerosGerados().get(i));
+            }
             fileOut = new FileOutputStream(new File("ResultadoExperimento.xls"));
         }
         workbook.write(fileOut);
