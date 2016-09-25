@@ -121,6 +121,17 @@ public class TestWindowController {
         this.rotina.clear();
     }
     
+    public void gerarNumerosDistribuicao(){
+        DistributionController.logNormal(0.0552, 0.0423, 1000);
+        try {
+            this.externalIOController.gravarNumerosDistribuição();
+            this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
+            this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");
+        } catch (IOException ex) {
+            Logger.getLogger(TestWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void finalizarTestes(){
         if(this.solver != null && this.solver.isThreadExecucao()){
             return;
