@@ -35,11 +35,11 @@ public class DistributionController {
         }
     }
     
-    public static void exponential(int size){
+    public static void exponential(double lambda, double extra, int size){
         numerosGerados.clear();
-        ExponentialDistribution ex = new ExponentialDistribution(207);
+        ExponentialDistribution ex = new ExponentialDistribution(lambda);
         for (int i = 0; i < size; i++) {
-            numerosGerados.add(ex.sample());
+            numerosGerados.add(extra + ex.sample());
         }
     }
 

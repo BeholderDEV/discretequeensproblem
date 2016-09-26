@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.CasoTeste;
 import model.QueenSolver;
 import model.QueenSolverExperimental;
@@ -32,7 +33,7 @@ public class TestWindowController {
         this.solver = solver;
         this.rotina = new ArrayList<CasoTeste>();
         this.testWindow = new TestWindow(this);
-        this.testWindow.setSize(950, 560);
+        this.testWindow.setSize(930, 370);
         this.testWindow.setLocationRelativeTo(null);
         this.testWindow.setVisible(true);
     }
@@ -121,19 +122,32 @@ public class TestWindowController {
         this.rotina.clear();
     }
     
-    public void gerarNumerosDistribuicao(){
+    public void gerarNumerosDistribuicaoLog(){
         try {
             Double media = Double.parseDouble(this.testWindow.getInputMedia().getText());
             Double desvio = Double.parseDouble(this.testWindow.getInputDesvio().getText());
             Double extra = Double.parseDouble(this.testWindow.getInputExtra().getText());
             int repeticoes = Integer.parseInt(this.testWindow.getInputDistRepeticoes().getText());
-            //DistributionController.logNormal(media, desvio, repeticoes, extra);
-            DistributionController.exponential(repeticoes);
+            DistributionController.logNormal(media, desvio, repeticoes, extra);
             this.externalIOController.gravarNumerosDistribuição();
             this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
             this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");
         } catch (Exception ex) {
-            Logger.getLogger(TestWindowController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(testWindow, "Falha no Input de Dados");
+        }
+    }
+    
+    public void gerarNumerosDistribuicaoExp(){
+        try {
+            Double lambda = Double.parseDouble(this.testWindow.getInputLambda().getText());
+            Double extra = Double.parseDouble(this.testWindow.getInputExtraExp().getText());
+            int repeticoes = Integer.parseInt(this.testWindow.getInputDistRepExp().getText());
+            DistributionController.exponential(lambda, extra, repeticoes);
+            this.externalIOController.gravarNumerosDistribuição();
+            this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
+            this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(testWindow, "Falha no Input de Dados");
         }
     }
     
