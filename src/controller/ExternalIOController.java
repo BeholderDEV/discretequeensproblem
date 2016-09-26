@@ -29,7 +29,7 @@ import org.apache.poi.ss.usermodel.Row;
  */
 public class ExternalIOController {
     
-    public void gravarResultadoTeste(QueenSolver solver) throws IOException{
+    public static void gravarResultadoTeste(QueenSolver solver) throws IOException{
         File f = new File("ResultadoExperimento.xls");
         HSSFWorkbook workbook = null;
         HSSFSheet sheet = null;  
@@ -64,7 +64,7 @@ public class ExternalIOController {
         fileOut.close();
     }
     
-    public void gravarNumerosDistribuição() throws IOException{
+    public static void gravarNumerosDistribuição() throws IOException{
         File f = new File("ResultadoExperimento.xls");
         HSSFWorkbook workbook = null;
         HSSFSheet sheet = null;  
@@ -91,14 +91,14 @@ public class ExternalIOController {
         fileOut.close();
     }
     
-    public void limparTestes(){
+    public static void limparTestes(){
         File f = new File("ResultadoExperimento.xls");
         if(f.exists()){
             f.delete();
         }
     }
     
-    public BufferedImage getImage(URL url) throws IOException{
+    public static BufferedImage getImage(URL url) throws IOException{
         return ImageIO.read(url);
     }
 }

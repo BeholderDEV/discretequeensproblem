@@ -25,7 +25,6 @@ public class TestWindowController {
     private MainWindowController mainWindowController;
     private TestWindow testWindow;
     private QueenSolver solver;
-    private ExternalIOController externalIOController = new ExternalIOController();
     private List<CasoTeste> rotina;
     
     public TestWindowController(MainWindowController mainWindowController, QueenSolver solver) {
@@ -41,7 +40,7 @@ public class TestWindowController {
     public void iniciarLimpezaTestes(){
         if(this.solver != null && !this.solver.isThreadExecucao()){
             this.testWindow.getLabelMensagem().setText("");
-            this.externalIOController.limparTestes();
+            ExternalIOController.limparTestes();
         }
     }
     
@@ -106,7 +105,7 @@ public class TestWindowController {
     
     public void gravarTeste(){
         try {
-            this.externalIOController.gravarResultadoTeste(this.solver);
+            ExternalIOController.gravarResultadoTeste(this.solver);
         } catch (IOException ex) {
             Logger.getLogger(TestWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,7 +128,7 @@ public class TestWindowController {
             Double extra = Double.parseDouble(this.testWindow.getInputExtra().getText());
             int repeticoes = Integer.parseInt(this.testWindow.getInputDistRepeticoes().getText());
             DistributionController.logNormal(media, desvio, repeticoes, extra);
-            this.externalIOController.gravarNumerosDistribuição();
+            ExternalIOController.gravarNumerosDistribuição();
             this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
             this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");
         } catch (Exception ex) {
@@ -143,7 +142,7 @@ public class TestWindowController {
             Double extra = Double.parseDouble(this.testWindow.getInputExtraExp().getText());
             int repeticoes = Integer.parseInt(this.testWindow.getInputDistRepExp().getText());
             DistributionController.exponential(lambda, extra, repeticoes);
-            this.externalIOController.gravarNumerosDistribuição();
+            ExternalIOController.gravarNumerosDistribuição();
             this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
             this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");
         } catch (Exception ex) {

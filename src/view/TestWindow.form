@@ -28,103 +28,93 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="botaoRetornar" min="-2" pref="262" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="botaoIncluirTeste" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="botaoIniciarRotina" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelTamanho" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="inputTamanho" min="-2" pref="97" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="labelRotina" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelRepeticoes" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="inputRepeticoes" min="-2" pref="97" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="botaoLimparRotina" min="-2" pref="120" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelMensagem" min="-2" pref="300" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Component id="botaoLimparRotina" min="-2" pref="124" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="botaoIncluirTeste" min="-2" pref="124" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="botaoIniciarRotina" min="-2" pref="124" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelTamanho" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="inputTamanho" min="-2" pref="97" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="labelRotina" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelRepeticoes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="inputRepeticoes" min="-2" pref="97" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="botaoRetornar" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="300" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botaoLimparDados" min="-2" pref="220" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="botaoNumLog" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labelLambda" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="inputLambda" min="-2" pref="45" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="labelExtraExp" max="32767" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="inputExtraExp" min="-2" pref="45" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="labelDistRepeExp" min="-2" pref="67" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="inputDistRepExp" min="-2" pref="53" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="botaoNumExp" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelDesvio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelMedia" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="inputMedia" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
-                                  <Component id="inputDesvio" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelDistRepeticoes" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="labelExtra" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="inputExtra" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="inputDistRepeticoes" min="-2" pref="53" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="botaoLimparDocumento" min="-2" pref="258" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelLambda" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="inputLambda" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelExtraExp" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="inputExtraExp" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="labelDistRepeExp" min="-2" pref="67" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="inputDistRepExp" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="botaoGerarDistLog" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelDesvio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelMedia" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="inputMedia" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="inputDesvio" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelDistRepeticoes" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="labelExtra" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="inputExtra" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="inputDistRepeticoes" min="-2" pref="53" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="botaoGerarDistExp" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,15 +130,15 @@
                           <Component id="labelDistRepeticoes" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="inputDistRepeticoes" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="inputDesvio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelDesvio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelExtra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="inputExtra" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="botaoNumLog" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="botaoGerarDistLog" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelLambda" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,21 +168,19 @@
                       <Component id="labelMensagem" min="-2" pref="19" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="botaoIniciarRotina" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoIncluirTeste" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoIniciarRotina" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="botaoLimparRotina" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botaoRetornar" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="botaoNumExp" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="botaoLimparDados" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="botaoRetornar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="botaoLimparDocumento" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="botaoGerarDistExp" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -200,14 +188,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="botaoRetornar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Retornar ao Tabuleiro"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRetornarActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelTamanho">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -263,38 +243,6 @@
         <Property name="text" type="java.lang.String" value="Rotina de Testes"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoIniciarRotina">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Iniciar Rotina"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIniciarRotinaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botaoIncluirTeste">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Incluir Teste"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIncluirTesteActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botaoLimparRotina">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar Rotina"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparRotinaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botaoLimparDados">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar Dados do Documento"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparDadosActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelMensagem">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -302,14 +250,6 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="botaoNumLog">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gerar Numeros Distribui&#xe7;&#xe3;o LogNormal"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNumLogActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelMedia">
       <Properties>
@@ -379,14 +319,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputExtraActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoNumExp">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gerar Numeros Distribui&#xe7;&#xe3;o Exponencial"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoNumExpActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelExtraExp">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -436,6 +368,62 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputDistRepExpActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoIncluirTeste">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Incluir Teste"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIncluirTesteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoIniciarRotina">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Iniciar Rotina"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIniciarRotinaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoLimparRotina">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Rotina"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparRotinaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoRetornar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Retornar ao Tabuleiro"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRetornarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoLimparDocumento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Documento"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparDocumentoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoGerarDistExp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gerar Numeros Distribui&#xe7;&#xe3;o Exponencial"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoGerarDistExpActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.alee.laf.button.WebButton" name="botaoGerarDistLog">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gerar Numeros Distribui&#xe7;&#xe3;o LogNormal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoGerarDistLogActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

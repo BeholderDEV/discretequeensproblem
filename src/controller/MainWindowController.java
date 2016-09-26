@@ -29,7 +29,6 @@ public class MainWindowController {
     private MainWindow mainWindow;
     private QueenSolver solver;
     private URL urlImagemQueen = getClass().getResource("/QueenPieceWhite.png");
-    private ExternalIOController externalIOController = new ExternalIOController();
     private TestWindowController testWindowController;
     
     public MainWindowController() {
@@ -42,7 +41,7 @@ public class MainWindowController {
     
     private void pintarQueen(JPanel square, Dimension squareSize){
         try {
-            BufferedImage queenImage = this.externalIOController.getImage(this.urlImagemQueen);
+            BufferedImage queenImage = ExternalIOController.getImage(this.urlImagemQueen);
             square.setLayout(new BorderLayout());
             Image scaledImage = queenImage.getScaledInstance(squareSize.width, squareSize.height, queenImage.SCALE_SMOOTH);
             JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
@@ -140,11 +139,8 @@ public class MainWindowController {
             this.mainWindow.setSize(1020, 699);
             this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
             this.mainWindow.setLocationRelativeTo(null);
-            this.mainWindow.getLabelSucesso().setText("Solucionado");
-        } else {
-            this.mainWindow.getLabelSucesso().setText("");
         }
-        
+        this.mainWindow.getLabelSucesso().setText("Solucionado");
     }
     
     public void iniciarModuloTeste(){

@@ -6,8 +6,12 @@
 package view;
 
 import com.alee.laf.WebLookAndFeel;
+import controller.ExternalIOController;
 import controller.TestWindowController;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -38,8 +42,26 @@ public class TestWindow extends javax.swing.JFrame {
         }
         initComponents();
         this.controller = ctr;
+        this.setButtonColor(this.botaoIncluirTeste, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.setButtonColor(this.botaoIniciarRotina, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.setButtonColor(this.botaoLimparRotina, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.setButtonColor(this.botaoRetornar, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.setButtonColor(this.botaoLimparDocumento, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.setButtonColor(this.botaoGerarDistExp, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.setButtonColor(this.botaoGerarDistLog, Color.WHITE, Color.WHITE, Color.BLACK, Color.RED, Color.DARK_GRAY, Color.RED);
+        this.getContentPane().setBackground(Color.WHITE);
         this.inputTamanho.requestFocus();
+        URL urlIcon = getClass().getResource("/touhou_icon.png");
+        Image frameIcon = null;
+        try {
+            frameIcon = ExternalIOController.getImage(urlIcon);
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setIconImage(frameIcon.getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        this.repaint();
     }
+    
     
     private void setButtonColor(com.alee.laf.button.WebButton b, Color fore, Color selFor, Color top, Color topSel, Color bot, Color botSel){
         b.setForeground (fore);
@@ -59,7 +81,6 @@ public class TestWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botaoRetornar = new javax.swing.JButton();
         labelTamanho = new javax.swing.JLabel();
         inputTamanho = new javax.swing.JTextField();
         labelRepeticoes = new javax.swing.JLabel();
@@ -67,12 +88,7 @@ public class TestWindow extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         outputRotinas = new javax.swing.JTextArea();
         labelRotina = new javax.swing.JLabel();
-        botaoIniciarRotina = new javax.swing.JButton();
-        botaoIncluirTeste = new javax.swing.JButton();
-        botaoLimparRotina = new javax.swing.JButton();
-        botaoLimparDados = new javax.swing.JButton();
         labelMensagem = new javax.swing.JLabel();
-        botaoNumLog = new javax.swing.JButton();
         labelMedia = new javax.swing.JLabel();
         inputMedia = new javax.swing.JTextField();
         inputDesvio = new javax.swing.JTextField();
@@ -81,24 +97,23 @@ public class TestWindow extends javax.swing.JFrame {
         inputDistRepeticoes = new javax.swing.JTextField();
         labelExtra = new javax.swing.JLabel();
         inputExtra = new javax.swing.JTextField();
-        botaoNumExp = new javax.swing.JButton();
         labelExtraExp = new javax.swing.JLabel();
         inputExtraExp = new javax.swing.JTextField();
         inputLambda = new javax.swing.JTextField();
         labelLambda = new javax.swing.JLabel();
         labelDistRepeExp = new javax.swing.JLabel();
         inputDistRepExp = new javax.swing.JTextField();
+        botaoIncluirTeste = new com.alee.laf.button.WebButton();
+        botaoIniciarRotina = new com.alee.laf.button.WebButton();
+        botaoLimparRotina = new com.alee.laf.button.WebButton();
+        botaoRetornar = new com.alee.laf.button.WebButton();
+        botaoLimparDocumento = new com.alee.laf.button.WebButton();
+        botaoGerarDistExp = new com.alee.laf.button.WebButton();
+        botaoGerarDistLog = new com.alee.laf.button.WebButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Módulo de Testes");
         setResizable(false);
-
-        botaoRetornar.setText("Retornar ao Tabuleiro");
-        botaoRetornar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRetornarActionPerformed(evt);
-            }
-        });
 
         labelTamanho.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelTamanho.setText("Tamanho de N: ");
@@ -129,43 +144,8 @@ public class TestWindow extends javax.swing.JFrame {
         labelRotina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelRotina.setText("Rotina de Testes");
 
-        botaoIniciarRotina.setText("Iniciar Rotina");
-        botaoIniciarRotina.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoIniciarRotinaActionPerformed(evt);
-            }
-        });
-
-        botaoIncluirTeste.setText("Incluir Teste");
-        botaoIncluirTeste.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoIncluirTesteActionPerformed(evt);
-            }
-        });
-
-        botaoLimparRotina.setText("Limpar Rotina");
-        botaoLimparRotina.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLimparRotinaActionPerformed(evt);
-            }
-        });
-
-        botaoLimparDados.setText("Limpar Dados do Documento");
-        botaoLimparDados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLimparDadosActionPerformed(evt);
-            }
-        });
-
         labelMensagem.setForeground(new java.awt.Color(204, 0, 51));
         labelMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        botaoNumLog.setText("Gerar Numeros Distribuição LogNormal");
-        botaoNumLog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoNumLogActionPerformed(evt);
-            }
-        });
 
         labelMedia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelMedia.setText("Média");
@@ -211,13 +191,6 @@ public class TestWindow extends javax.swing.JFrame {
             }
         });
 
-        botaoNumExp.setText("Gerar Numeros Distribuição Exponencial");
-        botaoNumExp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoNumExpActionPerformed(evt);
-            }
-        });
-
         labelExtraExp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelExtraExp.setText("Extra");
 
@@ -251,6 +224,55 @@ public class TestWindow extends javax.swing.JFrame {
             }
         });
 
+        botaoIncluirTeste.setText("Incluir Teste");
+        botaoIncluirTeste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoIncluirTesteActionPerformed(evt);
+            }
+        });
+
+        botaoIniciarRotina.setText("Iniciar Rotina");
+        botaoIniciarRotina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoIniciarRotinaActionPerformed(evt);
+            }
+        });
+
+        botaoLimparRotina.setText("Limpar Rotina");
+        botaoLimparRotina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparRotinaActionPerformed(evt);
+            }
+        });
+
+        botaoRetornar.setText("Retornar ao Tabuleiro");
+        botaoRetornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRetornarActionPerformed(evt);
+            }
+        });
+
+        botaoLimparDocumento.setText("Limpar Documento");
+        botaoLimparDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparDocumentoActionPerformed(evt);
+            }
+        });
+
+        botaoGerarDistExp.setText("Gerar Numeros Distribuição Exponencial");
+        botaoGerarDistExp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoGerarDistExpActionPerformed(evt);
+            }
+        });
+
+        botaoGerarDistLog.setText("Gerar Numeros Distribuição LogNormal");
+        botaoGerarDistLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoGerarDistLogActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -258,77 +280,72 @@ public class TestWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botaoRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(botaoIncluirTeste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(botaoIniciarRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labelTamanho)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(inputTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(labelRotina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labelRepeticoes)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(inputRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(botaoLimparRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(labelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(botaoLimparRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botaoIncluirTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoIniciarRotina, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(labelTamanho)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inputTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelRotina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(labelRepeticoes)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(botaoRetornar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(botaoNumLog, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoLimparDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelLambda)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(inputLambda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(labelExtraExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(inputExtraExp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(labelDistRepeExp, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelLambda)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(inputDistRepExp, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(26, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botaoNumExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelDesvio)
-                                    .addComponent(labelMedia))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inputMedia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inputDesvio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelExtra))
+                                .addComponent(inputLambda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(labelExtraExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(inputExtra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inputDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(23, 23, 23))))
+                                .addComponent(inputExtraExp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelDistRepeExp, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(inputDistRepExp))
+                    .addComponent(botaoGerarDistLog, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelDesvio)
+                            .addComponent(labelMedia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputMedia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputDesvio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelExtra))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inputExtra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(botaoGerarDistExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,14 +358,14 @@ public class TestWindow extends javax.swing.JFrame {
                             .addComponent(inputMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inputDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(inputDesvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelDesvio)
                             .addComponent(labelExtra)
                             .addComponent(inputExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoNumLog, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(botaoGerarDistLog, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelLambda)
@@ -373,54 +390,29 @@ public class TestWindow extends javax.swing.JFrame {
                         .addComponent(labelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botaoIniciarRotina)
-                            .addComponent(botaoIncluirTeste))
+                            .addComponent(botaoIncluirTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoIniciarRotina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoLimparRotina))
+                        .addComponent(botaoLimparRotina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoRetornar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(botaoNumExp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoLimparDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoGerarDistExp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRetornarActionPerformed
-        this.controller.finalizarTestes();
-    }//GEN-LAST:event_botaoRetornarActionPerformed
-
     private void inputRepeticoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRepeticoesActionPerformed
         this.botaoIncluirTeste.doClick();
     }//GEN-LAST:event_inputRepeticoesActionPerformed
 
-    private void botaoLimparDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparDadosActionPerformed
-        this.controller.iniciarLimpezaTestes();
-    }//GEN-LAST:event_botaoLimparDadosActionPerformed
-
-    private void botaoLimparRotinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparRotinaActionPerformed
-        this.controller.limparRotina();
-    }//GEN-LAST:event_botaoLimparRotinaActionPerformed
-
-    private void botaoIniciarRotinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIniciarRotinaActionPerformed
-        this.controller.iniciarRotina();
-    }//GEN-LAST:event_botaoIniciarRotinaActionPerformed
-
-    private void botaoIncluirTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirTesteActionPerformed
-        this.controller.inserirTeste();
-    }//GEN-LAST:event_botaoIncluirTesteActionPerformed
-
     private void inputTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTamanhoActionPerformed
         this.botaoIncluirTeste.doClick();
     }//GEN-LAST:event_inputTamanhoActionPerformed
-
-    private void botaoNumLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNumLogActionPerformed
-        this.controller.gerarNumerosDistribuicaoLog();
-    }//GEN-LAST:event_botaoNumLogActionPerformed
 
     private void inputMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMediaActionPerformed
         // TODO add your handling code here:
@@ -438,10 +430,6 @@ public class TestWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputExtraActionPerformed
 
-    private void botaoNumExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNumExpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoNumExpActionPerformed
-
     private void inputExtraExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputExtraExpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputExtraExpActionPerformed
@@ -453,6 +441,34 @@ public class TestWindow extends javax.swing.JFrame {
     private void inputDistRepExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDistRepExpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputDistRepExpActionPerformed
+
+    private void botaoIncluirTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirTesteActionPerformed
+        this.controller.inserirTeste();
+    }//GEN-LAST:event_botaoIncluirTesteActionPerformed
+
+    private void botaoIniciarRotinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIniciarRotinaActionPerformed
+        this.controller.iniciarRotina();
+    }//GEN-LAST:event_botaoIniciarRotinaActionPerformed
+
+    private void botaoLimparRotinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparRotinaActionPerformed
+        this.controller.limparRotina();
+    }//GEN-LAST:event_botaoLimparRotinaActionPerformed
+
+    private void botaoRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRetornarActionPerformed
+        this.controller.finalizarTestes();
+    }//GEN-LAST:event_botaoRetornarActionPerformed
+
+    private void botaoLimparDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparDocumentoActionPerformed
+        this.controller.iniciarLimpezaTestes();
+    }//GEN-LAST:event_botaoLimparDocumentoActionPerformed
+
+    private void botaoGerarDistExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerarDistExpActionPerformed
+        this.controller.gerarNumerosDistribuicaoExp();
+    }//GEN-LAST:event_botaoGerarDistExpActionPerformed
+
+    private void botaoGerarDistLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerarDistLogActionPerformed
+        this.controller.gerarNumerosDistribuicaoLog();
+    }//GEN-LAST:event_botaoGerarDistLogActionPerformed
 
     /**
      * @param args the command line arguments
@@ -490,13 +506,13 @@ public class TestWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoIncluirTeste;
-    private javax.swing.JButton botaoIniciarRotina;
-    private javax.swing.JButton botaoLimparDados;
-    private javax.swing.JButton botaoLimparRotina;
-    private javax.swing.JButton botaoNumExp;
-    private javax.swing.JButton botaoNumLog;
-    private javax.swing.JButton botaoRetornar;
+    private com.alee.laf.button.WebButton botaoGerarDistExp;
+    private com.alee.laf.button.WebButton botaoGerarDistLog;
+    private com.alee.laf.button.WebButton botaoIncluirTeste;
+    private com.alee.laf.button.WebButton botaoIniciarRotina;
+    private com.alee.laf.button.WebButton botaoLimparDocumento;
+    private com.alee.laf.button.WebButton botaoLimparRotina;
+    private com.alee.laf.button.WebButton botaoRetornar;
     private javax.swing.JTextField inputDesvio;
     private javax.swing.JTextField inputDistRepExp;
     private javax.swing.JTextField inputDistRepeticoes;
