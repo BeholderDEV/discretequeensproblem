@@ -39,7 +39,8 @@ public class TestWindowController {
     
     public void iniciarLimpezaTestes(){
         if(this.solver != null && !this.solver.isThreadExecucao()){
-            this.testWindow.getLabelMensagem().setText("");
+            this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
+            this.testWindow.getLabelMensagem().setText("Documento Limpo");
             ExternalIOController.limparTestes();
         }
     }

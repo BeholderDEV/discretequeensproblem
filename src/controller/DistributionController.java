@@ -5,8 +5,6 @@
  */
 package controller;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.math3.distribution.ExponentialDistribution;
@@ -21,12 +19,8 @@ public class DistributionController {
     
     public static void logNormal(double mean, double stand, double size, double extra){
         numerosGerados.clear();
-//        mean = 0.0527;
-//        stand = 0.0401;
         double mu = Math.log(mean * mean / Math.sqrt(mean * mean + stand * stand));
         double sigma = Math.sqrt(Math.log((mean * mean + stand * stand) / (mean * mean)));
-//        DecimalFormat df = new DecimalFormat("#.######");
-//        df.setRoundingMode(RoundingMode.HALF_UP);
         LogNormalDistribution lg = new LogNormalDistribution(mu, sigma);
         Double n;
         for (int i = 0; i < size; i++) {

@@ -12,7 +12,7 @@ import controller.MainWindowController;
  * @author Augustop
  */
 public class QueenSolverDemonstration extends QueenSolver{
-
+    
     public QueenSolverDemonstration(MainWindowController ctr) {
         this.mainWindowController = ctr;
     }
@@ -20,8 +20,8 @@ public class QueenSolverDemonstration extends QueenSolver{
     @Override
     public void run() {
         this.encontrarSolucao();
-        this.mainWindowController.terminarExecucao(true);
+        this.mainWindowController.terminarExecucao(true, true);
         this.threadExecucao = false;
     }
-    
+
 }

@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.QueenSolver;
 import model.QueenSolverDemonstration;
+import model.QueenSolverStepByStep;
 import view.MainWindow;
 
 /**
@@ -27,9 +28,10 @@ import view.MainWindow;
  */
 public class MainWindowController {
     private MainWindow mainWindow;
-    private QueenSolver solver;
+    private QueenSolver solver = new QueenSolverDemonstration(this);
     private URL urlImagemQueen = getClass().getResource("/QueenPieceWhite.png");
     private TestWindowController testWindowController;
+    private Color ultimaCor = Color.BLACK;
     
     public MainWindowController() {
         this.mainWindow = new MainWindow(this);
@@ -132,12 +134,17 @@ public class MainWindowController {
         }
     }
     
-    public synchronized void terminarExecucao(boolean pintarBoard){
-        this.mainWindow.getOutputTempo().setText("" + this.solver.getUltimoTempo());
+    public synchronized void terminarExecucao(boolean pintarBoard, boolean mostrarTempo){
+        if(mostrarTempo){
+            this.mainWindow.getOutputTempo().setText("" + this.solver.getUltimoTempo());
+        }else{
+            this.mainWindow.getOutputTempo().setText("" + 0);
+        }
         this.mainWindow.getOutputIteracoes().setText("" + this.solver.getIteracoes());
         if(this.solver.getN() <= 50 && pintarBoard == true){
             this.mainWindow.setSize(1020, 699);
-            this.pintarBoard(this.solver.getN(), this.definirCorBoard(), true);
+            this.ultimaCor = this.definirCorBoard();
+            this.pintarBoard(this.solver.getN(), this.ultimaCor, true);
             this.mainWindow.setLocationRelativeTo(null);
         }
         this.mainWindow.getLabelSucesso().setText("Solucionado");
@@ -155,9 +162,28 @@ public class MainWindowController {
         this.mainWindow.setVisible(true);
     }
 
-    
-    public void iniciarPassoAPasso(){
+    public void iniciarDemonstracao(){
+        if(this.solver != null && this.solver.isThreadExecucao()){
+            return;
+        }
+        this.solver = new QueenSolverDemonstration(this);
         this.iniciarExecucao();
     }
+    
+    public void iniciarPassoAPasso(){
+        if(this.solver != null && this.solver.isThreadExecucao()){
+            return;
+        }
+        this.ultimaCor = this.definirCorBoard();
+        this.solver = new QueenSolverStepByStep(this);
+        this.iniciarExecucao();
+    }
+    
+    public void mostrarIteracoes(){
+        this.mainWindow.getOutputIteracoes().setText("" + this.solver.getIteracoes());
+    }
 
+    public Color getUltimaCor() {
+        return ultimaCor;
+    }
 }

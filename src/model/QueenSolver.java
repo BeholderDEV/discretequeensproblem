@@ -27,7 +27,7 @@ public abstract class QueenSolver implements Runnable{
     
     protected void gerarEstadoAleatorio(){
         for (int i = 0; i < this.n; i++) {
-            this.posicoesQueen[i] = rand.nextInt(this.n);
+            this.posicoesQueen[i] = this.rand.nextInt(this.n);
         }
     }
     
@@ -57,7 +57,8 @@ public abstract class QueenSolver implements Runnable{
     }
     
     protected void definirNovaPosicao(int coluna){
-        int novaPosicao = 0; // Posição default para escapar de ótimos locais
+        int novaPosicao = 0; // Posição default para escapar de ótimos locais (50% de chance de forçadamente ir para a posição
+                             // default caso não haja melhora possível na posição atual
         int custoConflitoTemporario;
         int novoCustoConflito = this.determinarNumeroConflitos(this.posicoesQueen[coluna], coluna);
         
@@ -68,7 +69,7 @@ public abstract class QueenSolver implements Runnable{
             custoConflitoTemporario = this.determinarNumeroConflitos(i, coluna);
             if(custoConflitoTemporario <= novoCustoConflito){
                 if(custoConflitoTemporario == novoCustoConflito){
-                    if(rand.nextInt(2) == 1){
+                    if(this.rand.nextInt(2) == 1){
                         continue;
                     }
                 }
@@ -88,29 +89,31 @@ public abstract class QueenSolver implements Runnable{
         return true;
     }
     
-    // Utilizando heurística de busca local - Minimum Conflict
+    // Utilizando heurística de busca local (Hill Climbing) - Minimum Conflict
     public void encontrarSolucao(){
         this.rand = new Random(System.nanoTime());
-        
         double tempoInicial = System.nanoTime();
         this.posicoesQueen = new int[this.n];
         this.iteracoes = 0;
+        
         // Estado Inicial
-        // TODO - Definir se é melhor o estado inicial ser aleatório ou utilizar algum tipo de Greedy Search
+        // Possível melhora - Definir se é melhor o estado inicial ser aleatório ou utilizar algum tipo de Greedy Search
         this.gerarEstadoAleatorio();
         
-        // TODO - Lidar com Local Minima (Ótimos locais que impedem que a heurística realize algum movimento na busca local)
-        while(!determinarSolucaoEncontrada()){// && iteracoes <= 200){
+        // Possível melhora - Lidar com Local Minima (Ótimos locais que impedem que a heurística realize algum movimento na busca local)
+        while(!determinarSolucaoEncontrada()){
             
-            // TODO - Definir se é melhor determinar as novas posições sequencialmente ou
-            //        Criar uma lista ordenada da coluna com maior conflito para a menor
+            // Possível melhora - Definir se é melhor determinar as novas posições sequencialmente ou
+            //                    Criar uma lista ordenada da coluna com maior conflito para a menor
             for (int i = 0; i < this.n; i++) {
                 if(this.determinarNumeroConflitos(this.posicoesQueen[i], i) > 0){
                     this.definirNovaPosicao(i);
                 }
             }
             this.iteracoes++;
-            if(iteracoes % (n * 10) == 0){
+            
+            // Possível melhora - Definir número correto de iterações para dar reset no tabuleiro
+            if(this.iteracoes % (this.n * 10) == 0){
                 this.gerarEstadoAleatorio();
             }
         }
