@@ -161,7 +161,7 @@ public class MainWindowController {
 
     
     public void iniciarPassoAPasso(){
-
+        this.iniciarExecucao();
     }
 
 }

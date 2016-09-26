@@ -266,7 +266,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoModuloTestesActionPerformed
 
     private void botaoPassoAPassoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPassoAPassoActionPerformed
-        // TODO add your handling code here:
+        this.controller.iniciarPassoAPasso();
     }//GEN-LAST:event_botaoPassoAPassoActionPerformed
 
     /**
