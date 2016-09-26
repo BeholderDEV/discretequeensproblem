@@ -75,9 +75,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelLambda" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMediaExp" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="inputLambda" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="inputMediaExp" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labelExtraExp" max="32767" attributes="0"/>
@@ -141,8 +141,8 @@
                       <Component id="botaoGerarDistLog" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelLambda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="inputLambda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelMediaExp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="inputMediaExp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelDistRepeExp" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="inputDistRepExp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -336,21 +336,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputExtraExpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputLambda">
+    <Component class="javax.swing.JTextField" name="inputMediaExp">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputLambdaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputMediaExpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelLambda">
+    <Component class="javax.swing.JLabel" name="labelMediaExp">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Lambda"/>
+        <Property name="text" type="java.lang.String" value="M&#xe9;dia"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelDistRepeExp">

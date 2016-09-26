@@ -139,10 +139,10 @@ public class TestWindowController {
     
     public void gerarNumerosDistribuicaoExp(){
         try {
-            Double lambda = Double.parseDouble(this.testWindow.getInputLambda().getText());
+            Double media = Double.parseDouble(this.testWindow.getInputLambda().getText());
             Double extra = Double.parseDouble(this.testWindow.getInputExtraExp().getText());
             int repeticoes = Integer.parseInt(this.testWindow.getInputDistRepExp().getText());
-            DistributionController.exponential(lambda, extra, repeticoes);
+            DistributionController.exponential(media, extra, repeticoes);
             ExternalIOController.gravarNumerosDistribuição();
             this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
             this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");

@@ -29,9 +29,9 @@ public class DistributionController {
         }
     }
     
-    public static void exponential(double lambda, double extra, int size){
+    public static void exponential(double media, double extra, int size){
         numerosGerados.clear();
-        ExponentialDistribution ex = new ExponentialDistribution(lambda);
+        ExponentialDistribution ex = new ExponentialDistribution(media);
         for (int i = 0; i < size; i++) {
             numerosGerados.add(extra + ex.sample());
         }

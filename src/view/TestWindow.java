@@ -99,8 +99,8 @@ public class TestWindow extends javax.swing.JFrame {
         inputExtra = new javax.swing.JTextField();
         labelExtraExp = new javax.swing.JLabel();
         inputExtraExp = new javax.swing.JTextField();
-        inputLambda = new javax.swing.JTextField();
-        labelLambda = new javax.swing.JLabel();
+        inputMediaExp = new javax.swing.JTextField();
+        labelMediaExp = new javax.swing.JLabel();
         labelDistRepeExp = new javax.swing.JLabel();
         inputDistRepExp = new javax.swing.JTextField();
         botaoIncluirTeste = new com.alee.laf.button.WebButton();
@@ -202,16 +202,16 @@ public class TestWindow extends javax.swing.JFrame {
             }
         });
 
-        inputLambda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inputLambda.setText("0");
-        inputLambda.addActionListener(new java.awt.event.ActionListener() {
+        inputMediaExp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputMediaExp.setText("0");
+        inputMediaExp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputLambdaActionPerformed(evt);
+                inputMediaExpActionPerformed(evt);
             }
         });
 
-        labelLambda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        labelLambda.setText("Lambda");
+        labelMediaExp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelMediaExp.setText("Média");
 
         labelDistRepeExp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelDistRepeExp.setText("Repetições");
@@ -316,9 +316,9 @@ public class TestWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelLambda)
+                                .addComponent(labelMediaExp)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(inputLambda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(inputMediaExp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(labelExtraExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -368,8 +368,8 @@ public class TestWindow extends javax.swing.JFrame {
                         .addComponent(botaoGerarDistLog, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelLambda)
-                            .addComponent(inputLambda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMediaExp)
+                            .addComponent(inputMediaExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelDistRepeExp, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inputDistRepExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
@@ -434,9 +434,9 @@ public class TestWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputExtraExpActionPerformed
 
-    private void inputLambdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputLambdaActionPerformed
+    private void inputMediaExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMediaExpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputLambdaActionPerformed
+    }//GEN-LAST:event_inputMediaExpActionPerformed
 
     private void inputDistRepExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDistRepExpActionPerformed
         // TODO add your handling code here:
@@ -518,8 +518,8 @@ public class TestWindow extends javax.swing.JFrame {
     private javax.swing.JTextField inputDistRepeticoes;
     private javax.swing.JTextField inputExtra;
     private javax.swing.JTextField inputExtraExp;
-    private javax.swing.JTextField inputLambda;
     private javax.swing.JTextField inputMedia;
+    private javax.swing.JTextField inputMediaExp;
     private javax.swing.JTextField inputRepeticoes;
     private javax.swing.JTextField inputTamanho;
     private javax.swing.JScrollPane jScrollPane2;
@@ -528,8 +528,8 @@ public class TestWindow extends javax.swing.JFrame {
     private javax.swing.JLabel labelDistRepeticoes;
     private javax.swing.JLabel labelExtra;
     private javax.swing.JLabel labelExtraExp;
-    private javax.swing.JLabel labelLambda;
     private javax.swing.JLabel labelMedia;
+    private javax.swing.JLabel labelMediaExp;
     private javax.swing.JLabel labelMensagem;
     private javax.swing.JLabel labelRepeticoes;
     private javax.swing.JLabel labelRotina;
@@ -574,7 +574,7 @@ public class TestWindow extends javax.swing.JFrame {
     }
 
     public JTextField getInputLambda() {
-        return inputLambda;
+        return inputMediaExp;
     }
 
     public JTextField getInputExtraExp() {
