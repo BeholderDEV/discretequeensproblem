@@ -34,11 +34,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="labelCor" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="comboCor" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="labelIte" max="32767" attributes="0"/>
@@ -58,9 +53,16 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="inputTamanho" min="-2" pref="97" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="labelSucesso" alignment="1" min="-2" pref="246" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="labelSucesso" min="-2" pref="246" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="labelCor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Component id="comboCor" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -97,7 +99,9 @@
                   <Component id="labelIte" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="outputIteracoes" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="217" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="labelSucesso" min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelCor" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="comboCor" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -107,9 +111,7 @@
                   <Component id="labelTamanho" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="inputTamanho" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="labelSucesso" min="-2" pref="20" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Component id="labelFalha" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

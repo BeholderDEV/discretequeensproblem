@@ -33,7 +33,7 @@ public class TestWindowController {
         this.solver = solver;
         this.rotina = new ArrayList<CasoTeste>();
         this.testWindow = new TestWindow(this);
-        this.testWindow.setSize(930, 370);
+        this.testWindow.setSize(930, 360);
         this.testWindow.setLocationRelativeTo(null);
         this.testWindow.setVisible(true);
     }
