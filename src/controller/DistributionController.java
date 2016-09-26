@@ -19,10 +19,10 @@ import org.apache.commons.math3.distribution.LogNormalDistribution;
 public class DistributionController {
     private static List<Double> numerosGerados = new ArrayList<>(); 
     
-    public static void logNormal(double mean, double stand, double size){
+    public static void logNormal(double mean, double stand, double size, double extra){
         numerosGerados.clear();
-        mean = 0.0527;
-        stand = 0.0401;
+//        mean = 0.0527;
+//        stand = 0.0401;
         double mu = Math.log(mean * mean / Math.sqrt(mean * mean + stand * stand));
         double sigma = Math.sqrt(Math.log((mean * mean + stand * stand) / (mean * mean)));
 //        DecimalFormat df = new DecimalFormat("#.######");
@@ -30,14 +30,17 @@ public class DistributionController {
         LogNormalDistribution lg = new LogNormalDistribution(mu, sigma);
         Double n;
         for (int i = 0; i < size; i++) {
-            n = lg.sample();
+            n = extra + lg.sample();
             numerosGerados.add(n);
         }
     }
     
-    public static void exponential(){
+    public static void exponential(int size){
+        numerosGerados.clear();
         ExponentialDistribution ex = new ExponentialDistribution(207);
-        System.out.println(ex.probability(3, 500));
+        for (int i = 0; i < size; i++) {
+            numerosGerados.add(ex.sample());
+        }
     }
 
     public static List<Double> getNumerosGerados() {

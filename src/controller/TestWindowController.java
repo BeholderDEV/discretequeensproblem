@@ -32,7 +32,7 @@ public class TestWindowController {
         this.solver = solver;
         this.rotina = new ArrayList<CasoTeste>();
         this.testWindow = new TestWindow(this);
-        this.testWindow.setSize(950, 550);
+        this.testWindow.setSize(950, 560);
         this.testWindow.setLocationRelativeTo(null);
         this.testWindow.setVisible(true);
     }
@@ -122,12 +122,17 @@ public class TestWindowController {
     }
     
     public void gerarNumerosDistribuicao(){
-        DistributionController.logNormal(0.0552, 0.0423, 1000);
         try {
+            Double media = Double.parseDouble(this.testWindow.getInputMedia().getText());
+            Double desvio = Double.parseDouble(this.testWindow.getInputDesvio().getText());
+            Double extra = Double.parseDouble(this.testWindow.getInputExtra().getText());
+            int repeticoes = Integer.parseInt(this.testWindow.getInputDistRepeticoes().getText());
+            //DistributionController.logNormal(media, desvio, repeticoes, extra);
+            DistributionController.exponential(repeticoes);
             this.externalIOController.gravarNumerosDistribuição();
             this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
             this.testWindow.getLabelMensagem().setText("Numeros gravados em ResultadoExperimento.xls");
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(TestWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

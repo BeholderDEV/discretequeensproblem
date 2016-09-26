@@ -75,6 +75,14 @@ public class TestWindow extends javax.swing.JFrame {
         botaoLimparDados = new javax.swing.JButton();
         labelMensagem = new javax.swing.JLabel();
         botaoLimparDados1 = new javax.swing.JButton();
+        labelMedia = new javax.swing.JLabel();
+        inputMedia = new javax.swing.JTextField();
+        inputDesvio = new javax.swing.JTextField();
+        labelDesvio = new javax.swing.JLabel();
+        labelDistRepeticoes = new javax.swing.JLabel();
+        inputDistRepeticoes = new javax.swing.JTextField();
+        labelExtra = new javax.swing.JLabel();
+        inputExtra = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Módulo de Testes");
@@ -97,7 +105,7 @@ public class TestWindow extends javax.swing.JFrame {
         );
         painelGraficoLayout.setVerticalGroup(
             painelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGap(0, 388, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(painelGrafico);
@@ -145,7 +153,7 @@ public class TestWindow extends javax.swing.JFrame {
             }
         });
 
-        botaoLimparRotina.setText("Lmpar Rotina");
+        botaoLimparRotina.setText("Limpar Rotina");
         botaoLimparRotina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoLimparRotinaActionPerformed(evt);
@@ -162,10 +170,54 @@ public class TestWindow extends javax.swing.JFrame {
         labelMensagem.setForeground(new java.awt.Color(204, 0, 51));
         labelMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        botaoLimparDados1.setText("Gerar Numeros");
+        botaoLimparDados1.setText("Gerar Numeros Distribuição");
         botaoLimparDados1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoLimparDados1ActionPerformed(evt);
+            }
+        });
+
+        labelMedia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelMedia.setText("Média");
+
+        inputMedia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputMedia.setText("0");
+        inputMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputMediaActionPerformed(evt);
+            }
+        });
+
+        inputDesvio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputDesvio.setText("0");
+        inputDesvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDesvioActionPerformed(evt);
+            }
+        });
+
+        labelDesvio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelDesvio.setText("Desvio");
+
+        labelDistRepeticoes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelDistRepeticoes.setText("Repetições");
+
+        inputDistRepeticoes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputDistRepeticoes.setText("1000");
+        inputDistRepeticoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDistRepeticoesActionPerformed(evt);
+            }
+        });
+
+        labelExtra.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelExtra.setText("Extra");
+
+        inputExtra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inputExtra.setText("0");
+        inputExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputExtraActionPerformed(evt);
             }
         });
 
@@ -201,23 +253,40 @@ public class TestWindow extends javax.swing.JFrame {
                             .addComponent(labelMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(botaoLimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botaoLimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelMedia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(inputMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelDesvio)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(inputDesvio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelExtra))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inputExtra)
+                                    .addComponent(inputDistRepeticoes, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labelRotina)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -232,15 +301,28 @@ public class TestWindow extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(botaoIniciarRotina)
-                            .addComponent(botaoIncluirTeste))
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoLimparRotina)
-                        .addGap(35, 35, 35)))
+                            .addComponent(botaoIncluirTeste)))
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoLimparDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                    .addComponent(botaoLimparRotina)
+                    .addComponent(labelMedia)
+                    .addComponent(inputMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputDistRepeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputDesvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDesvio)
+                    .addComponent(labelExtra)
+                    .addComponent(inputExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoLimparDados1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
@@ -277,6 +359,22 @@ public class TestWindow extends javax.swing.JFrame {
     private void botaoLimparDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparDados1ActionPerformed
         this.controller.gerarNumerosDistribuicao();
     }//GEN-LAST:event_botaoLimparDados1ActionPerformed
+
+    private void inputMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMediaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputMediaActionPerformed
+
+    private void inputDesvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDesvioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputDesvioActionPerformed
+
+    private void inputDistRepeticoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDistRepeticoesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputDistRepeticoesActionPerformed
+
+    private void inputExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputExtraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputExtraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,10 +418,18 @@ public class TestWindow extends javax.swing.JFrame {
     private javax.swing.JButton botaoLimparDados1;
     private javax.swing.JButton botaoLimparRotina;
     private javax.swing.JButton botaoRetornar;
+    private javax.swing.JTextField inputDesvio;
+    private javax.swing.JTextField inputDistRepeticoes;
+    private javax.swing.JTextField inputExtra;
+    private javax.swing.JTextField inputMedia;
     private javax.swing.JTextField inputRepeticoes;
     private javax.swing.JTextField inputTamanho;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelDesvio;
+    private javax.swing.JLabel labelDistRepeticoes;
+    private javax.swing.JLabel labelExtra;
+    private javax.swing.JLabel labelMedia;
     private javax.swing.JLabel labelMensagem;
     private javax.swing.JLabel labelRepeticoes;
     private javax.swing.JLabel labelRotina;
@@ -347,5 +453,20 @@ public class TestWindow extends javax.swing.JFrame {
     public JLabel getLabelMensagem() {
         return labelMensagem;
     }
-    
+
+    public JTextField getInputDesvio() {
+        return inputDesvio;
+    }
+
+    public JTextField getInputMedia() {
+        return inputMedia;
+    }
+
+    public JTextField getInputDistRepeticoes() {
+        return inputDistRepeticoes;
+    }
+
+    public JTextField getInputExtra() {
+        return inputExtra;
+    }
 }
