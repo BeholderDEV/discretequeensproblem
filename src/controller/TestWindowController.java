@@ -151,6 +151,31 @@ public class TestWindowController {
         }
     }
     
+    public void iniciarTesteSequencial(){
+        if(this.solver == null){
+            this.solver = new QueenSolverExperimental(rotina, this);
+        }else if(this.solver.isThreadExecucao()){
+            return;
+        }
+        this.testWindow.getLabelMensagem().setText("");
+        this.testWindow.getLabelMensagem().setForeground(Color.RED);
+        if(!validarInputTeste(this.testWindow.getInputTamanho().getText(), this.testWindow.getInputRepeticoes().getText())){
+            return;
+        }
+        int numeroRepeticoes = Integer.parseInt(this.testWindow.getInputRepeticoes().getText());
+
+        this.rotina.clear();
+        for (int i = 5; i <= 500; i++) {
+            this.rotina.add(new CasoTeste(i, numeroRepeticoes));
+        }
+        this.solver = new QueenSolverExperimental(this.rotina, this);
+        this.testWindow.getLabelMensagem().setForeground(Color.BLUE);
+        this.testWindow.getLabelMensagem().setText("Executando...");
+        this.solver.setThreadExecucao(true);
+        Thread t = new Thread(solver);
+        t.start();
+    }
+    
     public void finalizarTestes(){
         if(this.solver != null && this.solver.isThreadExecucao()){
             return;

@@ -3,13 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Augustop/Programming/Queen/src/view/MainWindow.java</file>
-            <file>file:/C:/Augustop/Programming/Queen/src/launcher/Launcher.java</file>
-            <file>file:/C:/Augustop/Programming/Queen/resources/QueenPiece.png</file>
-            <file>file:/C:/Augustop/Programming/Queen/src/controller/MainWindowController.java</file>
-            <file>file:/C:/Augustop/Programming/Queen/src/model/QueenSolver.java</file>
-            <file>file:/C:/Augustop/Programming/Queen/resources/QueenPieceWhite.png</file>
-            <file>file:/C:/Augustop/Programming/Queen/src/model/QueenSolverStepByStep.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/controller/TestWindowController.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/controller/MainWindowController.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/view/TestWindow.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/model/CasoTeste.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/model/QueenSolverStepByStep.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/view/MainWindow.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/controller/ExternalIOController.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/resources/QueenPieceWhite.png</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/controller/DistributionController.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/resources/touhou_icon.png</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/model/QueenSolverDemonstration.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/launcher/Launcher.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/resources/QueenPiece.png</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/model/QueenSolver.java</file>
+            <file>file:/C:/Augustop/Programming/discretequeensproblem/src/model/QueenSolverExperimental.java</file>
         </group>
     </open-files>
 </project-private>

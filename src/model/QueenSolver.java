@@ -76,6 +76,7 @@ public abstract class QueenSolver implements Runnable{
                 novoCustoConflito = custoConflitoTemporario;
                 novaPosicao = i; 
             }
+            this.iteracoes++;
         }
         this.posicoesQueen[coluna] = novaPosicao;
     }
@@ -107,13 +108,14 @@ public abstract class QueenSolver implements Runnable{
             //                    Criar uma lista ordenada da coluna com maior conflito para a menor
             for (int i = 0; i < this.n; i++) {
                 if(this.determinarNumeroConflitos(this.posicoesQueen[i], i) > 0){
+                    this.iteracoes++;
                     this.definirNovaPosicao(i);
                 }
             }
-            this.iteracoes++;
+            
             
             // Possível melhora - Definir número correto de iterações para dar reset no tabuleiro
-            if(this.iteracoes % (this.n * 10) == 0){
+            if(this.iteracoes % (this.n * this.n * 10) == 0){
                 this.gerarEstadoAleatorio();
             }
         }
