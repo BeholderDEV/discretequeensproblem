@@ -1,1 +1,8 @@
+title: Discrete Queens
+description:  n queens problem implementation
+show_downloads: true
 theme: jekyll-theme-cayman
+markdown: kramdown
+highlighter: rouge
+gems:
+- jekyll-mentions
