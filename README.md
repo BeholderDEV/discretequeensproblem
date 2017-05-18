@@ -5,6 +5,7 @@ Imprementar um algoritmo para o [n-queens problem](https://en.wikipedia.org/wiki
 # Implementação
 
 Foi utilizado um algorítmo de busca local de conflito minimo.
+![](https://raw.githubusercontent.com/BeholderDEV/discretequeensproblem/master/doc/program.PNG)
 
 # Coleta de Dados
 
@@ -13,8 +14,20 @@ Os dados foram coletados a partir de uma rotina que gera 10 teste para cada tama
 # Resultados
 
 Comparando os dados podemos concluir que 
+
+Disperção por Iterações
+
+![](https://raw.githubusercontent.com/BeholderDEV/discretequeensproblem/master/doc/dispercao_iteracoes.PNG)
+
+Dispersão por tempo
+![](https://raw.githubusercontent.com/BeholderDEV/discretequeensproblem/master/doc/dispercao_tempo.PNG)
+
+Regressão
 ```math
 y = n ^ 1.740
 ```
+![](https://raw.githubusercontent.com/BeholderDEV/discretequeensproblem/master/doc/dispercao_itaracao_regressao.PNG)
+
+
 
 
