@@ -28,6 +28,8 @@ y = n ^ 1.740
 ```
 ![](https://raw.githubusercontent.com/BeholderDEV/discretequeensproblem/master/doc/dispercao_itaracao_regressao.PNG)
 
+![](https://raw.githubusercontent.com/BeholderDEV/discretequeensproblem/master/doc/dispercao_itaracao_regressao_log.PNG)
+
 
 
 
