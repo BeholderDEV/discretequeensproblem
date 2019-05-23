@@ -1,6 +1,6 @@
 # Objetivo
 
-Imprementar um algoritmo para o [n-queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle), tendo como objetivo buscar uma solução válida  para um determinando valor de n e realizar rotinas de teste para mensurar a quantidade de iteração necessárias para encontrar tal solução. 
+Implementar um algoritmo para o [n-queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle), tendo como objetivo buscar uma solução válida  para um determinando valor de n e realizar rotinas de teste para mensurar a quantidade de iteração necessárias para encontrar tal solução. 
 
 # Implementação
 
